@@ -6,8 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 //IOC - Dependency Injection
 //Dependency Injection Repository
 //builder.Services.AddScoped<IAlunoRepository, AlunoRepositorySqlServer>();
-//builder.Services.AddScoped<IDisciplinaRepository, DisciplinaRepositorySqlServer>();
-//builder.Services.AddScoped<IMatriculaRepository, MatriculaRepositorySqlServer>();
 
 ////Dependency Injection SqlContext
 builder.Services.AddScoped<SqlContext, SqlContext>();
