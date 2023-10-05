@@ -1,24 +1,15 @@
 using DDD.Infra.SQLServer;
-using DDD.Infra.SQLServer.Interfaces.SecretariaInterface;
-using DDD.Infra.SQLServer.Interfaces.TIInterface;
-using DDD.Infra.SQLServer.Repositories.SecretariaRepository;
-using DDD.Infra.SQLServer.Repositories.TIRepository;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 //IOC - Dependency Injection
-//SecretariaContext
-builder.Services.AddScoped<IAlunoRepository, AlunoRepositorySqlServer>();
-builder.Services.AddScoped<IDisciplinaRepository, DisciplinaRepositorySqlServer>();
-builder.Services.AddScoped<IMatriculaRepository, MatriculaRepositorySqlServer>();
-//TIContext
-builder.Services.AddScoped<IGerenteRepository, GerenteRepositorySqlServer>();
-builder.Services.AddScoped<IProgramadorRepository, ProgramadorRepositorySqlServer>();
-builder.Services.AddScoped<IProjetoTIRepository, ProjetoTIRepositorySqlServer>();
-//SqlContext
+//Dependency Injection Repository
+//builder.Services.AddScoped<IAlunoRepository, AlunoRepositorySqlServer>();
+//builder.Services.AddScoped<IDisciplinaRepository, DisciplinaRepositorySqlServer>();
+//builder.Services.AddScoped<IMatriculaRepository, MatriculaRepositorySqlServer>();
+
+////Dependency Injection SqlContext
 builder.Services.AddScoped<SqlContext, SqlContext>();
 
 builder.Services.AddControllers().AddJsonOptions(x =>
