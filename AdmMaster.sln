@@ -2,11 +2,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{982DD866-6E88-478F-8622-E640AB673C59}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{982DD866-6E88-478F-8622-E640AB673C59}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0B4B52A9-8E58-4FC4-8F6F-C10486E78F68}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{0B4B52A9-8E58-4FC4-8F6F-C10486E78F68}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{553EC664-4908-4C13-8B99-A475D56E0F37}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{553EC664-4908-4C13-8B99-A475D56E0F37}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "DDD.Domain\Domain.csproj", "{E95C00A9-348E-4209-BD99-3F97AD39FE4D}"
 EndProject
