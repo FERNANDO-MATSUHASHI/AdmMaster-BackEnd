@@ -1,4 +1,4 @@
-using DDD.Infra.SQLServer;
+using Infra;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);

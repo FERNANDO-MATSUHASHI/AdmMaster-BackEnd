@@ -1,11 +1,4 @@
-﻿using DDD.Domain.AdmMaster;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DDD.Domain.UserManagementContext
+﻿namespace Domain.Entities
 {
     public class Usuario
     {
@@ -16,12 +9,12 @@ namespace DDD.Domain.UserManagementContext
         public DateTime data_nascimento { get; set; }
         public DateTime criado_em { get; set; }
         public int cep { get; set; }
-        public string rua { get; set; } 
+        public string rua { get; set; }
         public int numero { get; set; }
-        public string cidade { get; set;}
-        public string estado { get; set;}
-        public string user_name { get; set;}
-        public string senha { get; set;}
+        public string cidade { get; set; }
+        public string estado { get; set; }
+        public string user_name { get; set; }
+        public string senha { get; set; }
         public bool ativo { get; set; }
         public List<Cargo>? Cargos { get; set; }
     }

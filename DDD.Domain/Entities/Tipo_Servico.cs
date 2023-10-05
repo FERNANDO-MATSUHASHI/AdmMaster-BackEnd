@@ -1,8 +1,8 @@
-﻿namespace DDD.Domain.AdmMaster
+﻿namespace Domain.Entities
 {
     public class Tipo_Servico
     {
         public int tipo_servico_ID { get; set; }
-        public string descricao { get; set;}
+        public string descricao { get; set; }
     }
 }

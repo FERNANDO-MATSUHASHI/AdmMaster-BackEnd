@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DDD.Domain.AdmMaster
+namespace Domain.Entities
 {
     public class Veiculo
     {

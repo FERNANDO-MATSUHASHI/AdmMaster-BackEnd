@@ -1,4 +1,4 @@
-﻿namespace DDD.Domain.AdmMaster
+﻿namespace Domain.Entities
 {
     public class Tipo_Viatura
     {

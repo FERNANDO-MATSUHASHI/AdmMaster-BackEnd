@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace DDD.Infra.SQLServer
+namespace Infra
 {
     public class SqlContext : DbContext
     {
@@ -10,7 +10,7 @@ namespace DDD.Infra.SQLServer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=UniversidadeDb");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AdmMasterDb");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
