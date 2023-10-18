@@ -8,11 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0B4B52
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{553EC664-4908-4C13-8B99-A475D56E0F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain\Domain.csproj", "{68C31832-9707-4709-87CC-F9E08557B341}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain\Domain.csproj", "{68C31832-9707-4709-87CC-F9E08557B341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra\Infra.csproj", "{64785AE8-D9BB-4E33-81A4-70F7C58F2BA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdmMaster.Infra.SQLServer", "Infra\Infra\AdmMaster.Infra.SQLServer.csproj", "{64785AE8-D9BB-4E33-81A4-70F7C58F2BA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application\Application.csproj", "{0ED16CEC-B8B2-4936-B4C1-5409EECDCD82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdmMaster.Application.Api", "Application\Application\AdmMaster.Application.Api.csproj", "{0ED16CEC-B8B2-4936-B4C1-5409EECDCD82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

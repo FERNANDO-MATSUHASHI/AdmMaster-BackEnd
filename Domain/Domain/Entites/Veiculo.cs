@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DDD.Domain.Entites
 {
     public class Veiculo
     {
-        public int tipo_veiculo_ID { get; set; }
+        [Key] public int tipo_veiculo_ID { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal valor_saida { get; set; }
