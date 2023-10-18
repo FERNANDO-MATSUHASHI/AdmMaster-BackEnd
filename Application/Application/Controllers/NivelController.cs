@@ -20,13 +20,13 @@ namespace AdmMaster.Application.Api.Controllers
         [HttpGet]
         public List<Nivel> GetNivel()
         {
-            return _context.Nivels.ToList();
+            return _context.Niveis.ToList();
         }
 
         [HttpGet("{id}")]
         public Nivel GetNivelById(int id)
         {
-            return _context.Nivels.Find(id);
+            return _context.Niveis.Find(id);
         }
 
         [HttpPost]
@@ -34,7 +34,7 @@ namespace AdmMaster.Application.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public void InsertNivel(Nivel nivel)
         {
-            _context.Nivels.Add(nivel);
+            _context.Niveis.Add(nivel);
             _context.SaveChanges();
         }
 

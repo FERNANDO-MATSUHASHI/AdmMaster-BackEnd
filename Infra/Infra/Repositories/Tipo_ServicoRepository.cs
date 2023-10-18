@@ -59,5 +59,6 @@ namespace AdmMaster.Infra.MemoryDb.Repositories
                 //log exception
                 throw ex;
             }
+        }
     }
 }

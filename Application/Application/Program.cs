@@ -21,7 +21,7 @@ builder.Services.AddScoped<ITipo_ServicoRepository, Tipo_ServicoRepository>();
 builder.Services.AddScoped<ITipo_VeiculoRepository, Tipo_VeiculoRepository>();
 builder.Services.AddScoped<ITipo_ViaturaRepository, Tipo_ViaturaRepository>();
 builder.Services.AddScoped<INivelRepository, NivelRepository>();
-builder.Services.AddScoped<IViaturaRepository, ViaturaRepositorySqlServer>();
+builder.Services.AddScoped<IViaturaRepository, ViaturaRepository>();
 builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
 
 builder.Services.AddScoped<SqlContext, SqlContext>();
