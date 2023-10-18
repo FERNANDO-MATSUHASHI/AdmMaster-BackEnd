@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DDD.Domain.Entites
+namespace Domain.Entites
 {
     public class Veiculo
     {

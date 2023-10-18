@@ -1,5 +1,4 @@
-﻿using DDD.Domain.Entites;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entites
 {

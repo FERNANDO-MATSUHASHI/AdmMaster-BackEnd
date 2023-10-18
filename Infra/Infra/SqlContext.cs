@@ -1,13 +1,10 @@
+using Domain.Entites;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infra
 {
     public class SqlContext : DbContext
     {
-
-        //https://balta.io/blog/ef-crud
-        //https://jasonwatmore.com/post/2022/03/18/net-6-connect-to-sql-server-with-entity-framework-core
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AdmMasterDb");
@@ -15,41 +12,25 @@ namespace Infra
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            ////modelBuilder.Entity<Matricula>().HasKey(m => new { m.AlunoId, m.DisciplinaId });
-            //modelBuilder.Entity<Aluno>()
-            //    .HasMany(e => e.Disciplinas)
-            //    .WithMany(e => e.Alunos)
-            //    .UsingEntity<Matricula>();
-
-
-            //modelBuilder.Entity<User>().UseTpcMappingStrategy();
-            //modelBuilder.Entity<Aluno>().ToTable("Aluno");
-            //modelBuilder.Entity<Pesquisador>().ToTable("Pesquisador");
-            ////https://learn.microsoft.com/pt-br/ef/core/modeling/inheritance
-
-            //modelBuilder.Entity<Gerente>()
-            //    .HasMany(e => e.Programadores)
-            //    .WithMany(e => e.Gerente)
-            //    .UsingEntity<ProjetoTI>();
-
-            //modelBuilder.Entity<User>().UseTpcMappingStrategy();
-            //modelBuilder.Entity<Gerente>().ToTable("GerenteTI");
-            //modelBuilder.Entity<Programador>().ToTable("Programador");
-            //modelBuilder.Entity<ProjetoTI>().ToTable("ProjetosTI");
+            modelBuilder.Entity<Usuario>().ToTable("Usuario");
+            modelBuilder.Entity<Cargo>().ToTable("Cargo");
+            modelBuilder.Entity<Nivel>().ToTable("Nivel");
+            modelBuilder.Entity<Atendimento>().ToTable("Atendimento");
+            modelBuilder.Entity<Viatura>().ToTable("Viatura");
+            modelBuilder.Entity<Tipo_Viatura>().ToTable("Tipo_Viatura");
+            modelBuilder.Entity<Veiculo>().ToTable("Veiculo");
+            modelBuilder.Entity<Tipo_Veiculo>().ToTable("Tipo_Veiculo");
+            modelBuilder.Entity<Tipo_Servico>().ToTable("Tipo_Servico");
         }
 
-        //UserManagementContext
-        //public DbSet<User> Users { get; set; }
-        ////SecretariaContext
-        //public DbSet<Aluno> Alunos { get; set; }
-        //public DbSet<Disciplina> Disciplinas { get; set; }
-        //public DbSet<Matricula> Matriculas { get; set; }
-        ////PicContext
-        ////public DbSet<Pesquisador> Pesquisadores { get; set; }
-        ////public DbSet<Projeto> Projetos { get; set; }
-        ////TIContext
-        //public DbSet<Gerente> Gerentes { get; set; }
-        //public DbSet<Programador> Programadores { get; set; }
-        //public DbSet<ProjetoTI> ProjetosTI { get; set; }
+        public DbSet<Atendimento>? Atendimentos { get; set; }
+        public DbSet<Usuario>? Usuarios { get; set; }
+        public DbSet<Veiculo>? Veiculos { get; set; }
+        public DbSet<Viatura>? Viaturas { get; set; }
+        public DbSet<Tipo_Veiculo>? Tipo_Veiculos { get; set; }
+        public DbSet<Tipo_Servico>? Tipo_Servicos { get; set; }
+        public DbSet<Cargo>? Cargos { get; set; }
+        public DbSet<Nivel>? Nivels { get; set; }
+        public DbSet<Tipo_Viatura>? Tipo_Viaturas { get; set; }
     }
 }

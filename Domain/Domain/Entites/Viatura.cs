@@ -1,4 +1,4 @@
-﻿namespace DDD.Domain.Entites
+﻿namespace Domain.Entites
 {
     public class Viatura
     {
@@ -8,7 +8,5 @@
         public List<Tipo_Servico>? Tipo_Servicos { get; set; }
         public List<Tipo_Viatura>? Tipo_Viaturas { get; set; }
         public List<Veiculo>? Veiculos { get; set; }
-
-
     }
 }

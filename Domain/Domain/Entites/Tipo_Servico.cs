@@ -1,4 +1,4 @@
-﻿namespace DDD.Domain.Entites
+﻿namespace Domain.Entites
 {
     public class Tipo_Servico
     {
