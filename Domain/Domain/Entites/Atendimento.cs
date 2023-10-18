@@ -4,7 +4,7 @@ namespace Domain.Entites
 {
     public class Atendimento
     {
-        public int atendimento_ID { get; set; }
+        public int Id { get; set; }
         public DateTime data { get; set; }
         public string qru { get; set; }
         public string qth { get; set; }

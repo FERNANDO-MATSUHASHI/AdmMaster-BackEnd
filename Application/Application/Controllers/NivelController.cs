@@ -1,4 +1,4 @@
-﻿using Domain.Entites;
+﻿using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
@@ -20,19 +20,19 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public IActionResult InsertNivel(Nivel nivel)
+        public IActionResult InsertNivel(NivelViewModel nivelViewModel)
         {
             return Ok();
         }
 
         [HttpPut]
-        public IActionResult UpdateNivel(Nivel nivel)
+        public IActionResult UpdateNivel(NivelViewModel nivelViewModel)
         {
             return Ok();
         }
 
         [HttpDelete()]
-        public IActionResult DeleteNivel(Nivel nivel)
+        public IActionResult DeleteNivel(NivelViewModel nivelViewModel)
         {
             return Ok();
         }

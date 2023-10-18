@@ -2,7 +2,7 @@
 {
     public class Cargo
     {
-        public int cargo_ID { get; set; }
+        public int Id { get; set; }
         public string descricao { get; set; }
         public List<Nivel>? Niveis { get; set; }
 

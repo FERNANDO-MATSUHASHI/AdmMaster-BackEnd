@@ -1,8 +1,10 @@
-﻿namespace Domain.Entites
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entites
 {
     public class Usuario
     {
-        public int usuario_ID { get; set; }
+        public int Id { get; set; }
         public string nome { get; set; }
         public int cpf { get; set; }
         public string email { get; set; }
@@ -16,6 +18,9 @@
         public string user_name { get; set; }
         public string senha { get; set; }
         public bool ativo { get; set; }
+        [Column(TypeName = "decimal(5,2)")]
+        public Decimal comissao { get; set; }
+        public int gerenteId { get; set; }
         public List<Cargo>? Cargos { get; set; }
     }
 }

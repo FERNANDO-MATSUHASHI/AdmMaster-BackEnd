@@ -2,7 +2,7 @@
 {
     public class Tipo_Servico
     {
-        public int tipo_servico_ID { get; set; }
+        public int Id { get; set; }
         public string descricao { get; set; }
     }
 }

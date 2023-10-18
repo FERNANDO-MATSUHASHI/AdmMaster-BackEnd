@@ -4,7 +4,7 @@ namespace Domain.Entites
 {
     public class Veiculo
     {
-        public int tipo_veiculo_ID { get; set; }
+        public int Id { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal valor_saida { get; set; }

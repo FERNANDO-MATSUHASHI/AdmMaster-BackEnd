@@ -1,8 +1,7 @@
-﻿namespace Domain.Entites
+﻿namespace Domain.ViewModel
 {
-    public class Nivel
+    public class NivelViewModel
     {
-        public int Id { get; set; }
         public int nivel { get; set; }
         public string descricao { get; set; }
     }
