@@ -1,7 +1,10 @@
+using Application.Service.Application;
+using Application.Service.Interface;
+using Domain.Service.Interfaces;
+using Domain.Service.Services;
 using Infra;
 using Infra.Interfaces;
 using Infra.Repositories;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,11 +22,15 @@ builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
 builder.Services.AddScoped<IViaturaRepository, ViaturaRepository>();
 
 
+//Dependency Injection Application
+builder.Services.AddScoped<INivelApplication, NivelApplication>();
+
+
+//Dependency Injection Service
+builder.Services.AddScoped<INivelService, NivelService>();
+
 ////Dependency Injection SqlContext
 builder.Services.AddScoped<SqlContext, SqlContext>();
-
-builder.Services.AddControllers().AddJsonOptions(x =>
-   x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -1,4 +1,5 @@
-﻿using Domain.ViewModel;
+﻿using Application.Service.Interface;
+using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
@@ -7,34 +8,81 @@ namespace Application.Controllers
     [ApiController]
     public class NivelController : ControllerBase
     {
+        private readonly INivelApplication _nivelApplication;
+
+        public NivelController(INivelApplication nivelApplication)
+        {
+            _nivelApplication = nivelApplication;
+        }
+
         [HttpGet]
         public IActionResult GetNivel()
         {
-            return Ok();
+            try
+            {
+                var niveis = _nivelApplication.GetNivel();
+                return Ok(niveis);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult GetNivelById(int id)
         {
-            return Ok();
+            try
+            {
+                var nivel = _nivelApplication.GetNivelById(id);
+                return Ok(nivel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
         public IActionResult InsertNivel(NivelViewModel nivelViewModel)
         {
-            return Ok();
+            try
+            {
+                _nivelApplication.InsertNivel(nivelViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPut]
-        public IActionResult UpdateNivel(NivelViewModel nivelViewModel)
+        [HttpPut("{id}")]
+        public IActionResult UpdateNivel(int id, NivelViewModel nivelViewModel)
         {
-            return Ok();
+            try
+            {
+                _nivelApplication.UpdateNivel(id, nivelViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete()]
-        public IActionResult DeleteNivel(NivelViewModel nivelViewModel)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteNivel(int id)
         {
-            return Ok();
+            try
+            {
+                _nivelApplication.DeleteNivel(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

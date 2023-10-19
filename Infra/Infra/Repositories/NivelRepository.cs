@@ -1,6 +1,5 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -25,41 +24,20 @@ namespace Infra.Repositories
 
         public void InsertNivel(Nivel nivel)
         {
-            try
-            {
-                _context.Niveis.Add(nivel);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Niveis.Add(nivel);
+            _context.SaveChanges();
         }
 
         public void UpdateNivel(Nivel nivel)
         {
-            try
-            {
-                _context.Entry(nivel).State = EntityState.Modified;
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Update(nivel);
+            _context.SaveChanges();
         }
 
         public void DeleteNivel(Nivel nivel)
         {
-            try
-            {
-                _context.Set<Nivel>().Remove(nivel);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Niveis.Remove(nivel);
+            _context.SaveChanges();
         }
     }
 }
