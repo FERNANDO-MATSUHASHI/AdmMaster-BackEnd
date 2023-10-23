@@ -24,10 +24,14 @@ builder.Services.AddScoped<IViaturaRepository, ViaturaRepository>();
 
 //Dependency Injection Application
 builder.Services.AddScoped<INivelApplication, NivelApplication>();
+builder.Services.AddScoped<IAtendimentoApplication, AtendimentoApplication>();
+builder.Services.AddScoped<ICargoApplication, CargoApplication>();
 
 
 //Dependency Injection Service
 builder.Services.AddScoped<INivelService, NivelService>();
+builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
+builder.Services.AddScoped<ICargoService, CargoService>();
 
 ////Dependency Injection SqlContext
 builder.Services.AddScoped<SqlContext, SqlContext>();

@@ -1,6 +1,5 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -22,42 +21,20 @@ namespace Infra.Repositories
         {
             return _context.Cargos.Find(id);
         }
-        public void InsertCargo(Cargo cargo, int idNivel)
+        public void InsertCargo(Cargo cargo)
         {
-            try
-            {
-                _context.Cargos.Add(cargo);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Cargos.Add(cargo);
+            _context.SaveChanges();
         }
         public void UpdateCargo(Cargo cargo)
         {
-            try
-            {
-                _context.Entry(cargo).State = EntityState.Modified;
-                _context.SaveChanges();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Cargos.Update(cargo);
+            _context.SaveChanges();
         }
         public void DeleteCargo(Cargo cargo)
         {
-            try
-            {
-                _context.Set<Cargo>().Remove(cargo);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Cargos.Remove(cargo);
+            _context.SaveChanges();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Domain.Entites;
+﻿using Application.Service.Interface;
+using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
@@ -7,34 +8,81 @@ namespace Application.Controllers
     [ApiController]
     public class AtendimentoController : ControllerBase
     {
+        private readonly IAtendimentoApplication _atendimentoApplication;
+
+        public AtendimentoController(IAtendimentoApplication atendimentoApplication)
+        {
+            _atendimentoApplication = atendimentoApplication;
+        }
+
         [HttpGet]
         public IActionResult GetAtendimento()
         {
-            return Ok();
+            try
+            {
+                var niveis = _atendimentoApplication.GetAtendimento();
+                return Ok(niveis);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult GetAtendimentoById(int id)
         {
-            return Ok();
+            try
+            {
+                var nivel = _atendimentoApplication.GetAtendimentoById(id);
+                return Ok(nivel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
-        public IActionResult InsertAtendimento(Atendimento atendimento)
+        public IActionResult InsertAtendimento(AtendimentoViewModel atendimentoViewModel)
         {
-            return Ok();
+            try
+            {
+                _atendimentoApplication.InsertAtendimento(atendimentoViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPut]
-        public IActionResult UpdateAtendimento(Atendimento atendimento)
+        [HttpPut("{id}")]
+        public IActionResult UpdateAtendimento(int id, AtendimentoViewModel atendimentoViewModel)
         {
-            return Ok();
+            try
+            {
+                _atendimentoApplication.UpdateAtendimento(id, atendimentoViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete()]
-        public IActionResult DeleteAtendimento(Atendimento atendimento)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAtendimento(int id)
         {
-            return Ok();
+            try
+            {
+                _atendimentoApplication.DeleteAtendimento(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

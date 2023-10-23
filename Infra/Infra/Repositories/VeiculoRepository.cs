@@ -1,6 +1,5 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -23,43 +22,21 @@ namespace Infra.Repositories
             return _context.Veiculos.Find(id);
         }
 
-        public void InsertVeiculo(Veiculo veiculo, int idTipoVeiculo)
+        public void InsertVeiculo(Veiculo veiculo)
         {
-            try
-            {
-                _context.Veiculos.Add(veiculo);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Veiculos.Add(veiculo);
+            _context.SaveChanges();
         }
 
         public void UpdateVeiculo(Veiculo veiculo)
         {
-            try
-            {
-                _context.Entry(veiculo).State = EntityState.Modified;
-                _context.SaveChanges();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Veiculos.Update(veiculo);
+            _context.SaveChanges();
         }
         public void DeleteVeiculo(Veiculo veiculo)
         {
-            try
-            {
-                _context.Set<Veiculo>().Remove(veiculo);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Veiculos.Remove(veiculo);
+            _context.SaveChanges();
         }
     }
 }

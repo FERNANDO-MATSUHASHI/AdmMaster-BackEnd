@@ -1,6 +1,5 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -23,43 +22,22 @@ namespace Infra.Repositories
             return _context.Usuarios.Find(id);
         }
 
-        public void InsertUsuario(Usuario usuario, int idCargo)
+        public void InsertUsuario(Usuario usuario)
         {
-            try
-            {
-                _context.Usuarios.Add(usuario);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
         }
 
         public void UpdateUsuario(Usuario usuario)
         {
-            try
-            {
-                _context.Entry(usuario).State = EntityState.Modified;
-                _context.SaveChanges();
+            _context.Usuarios.Update(usuario);
+            _context.SaveChanges();
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
         }
         public void DeleteUsuario(Usuario usuario)
         {
-            try
-            {
-                _context.Set<Usuario>().Remove(usuario);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Usuarios.Remove(usuario);
+            _context.SaveChanges();
         }
     }
 }

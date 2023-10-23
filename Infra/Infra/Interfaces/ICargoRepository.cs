@@ -6,7 +6,7 @@ namespace Infra.Interfaces
     {
         public List<Cargo> GetCargos();
         public Cargo GetCargoById(int id);
-        public void InsertCargo(Cargo cargo, int idNivel);
+        public void InsertCargo(Cargo cargo);
         public void UpdateCargo(Cargo cargo);
         public void DeleteCargo(Cargo cargo);
     }

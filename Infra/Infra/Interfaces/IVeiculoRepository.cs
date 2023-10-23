@@ -6,7 +6,7 @@ namespace Infra.Interfaces
     {
         public List<Veiculo> GetVeiculo();
         public Veiculo GetVeiculoById(int id);
-        public void InsertVeiculo(Veiculo veiculo, int idTipoVeiculo);
+        public void InsertVeiculo(Veiculo veiculo);
         public void UpdateVeiculo(Veiculo veiculo);
         public void DeleteVeiculo(Veiculo veiculo);
     }

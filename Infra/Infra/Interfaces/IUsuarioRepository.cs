@@ -6,7 +6,7 @@ namespace Infra.Interfaces
     {
         public List<Usuario> GetUsuario();
         public Usuario GetUsuarioById(int id);
-        public void InsertUsuario(Usuario usuario, int idCargo);
+        public void InsertUsuario(Usuario usuario);
         public void UpdateUsuario(Usuario usuario);
         public void DeleteUsuario(Usuario usuario);
     }

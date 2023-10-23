@@ -1,6 +1,5 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -25,41 +24,19 @@ namespace Infra.Repositories
 
         public void InsertTipoVeiculo(Tipo_Veiculo tipoVeiculo)
         {
-            try
-            {
-                _context.Tipo_Veiculos.Add(tipoVeiculo);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Tipo_Veiculos.Add(tipoVeiculo);
+            _context.SaveChanges();
         }
 
         public void UpdateTipoVeiculo(Tipo_Veiculo tipoVeiculo)
         {
-            try
-            {
-                _context.Entry(tipoVeiculo).State = EntityState.Modified;
-                _context.SaveChanges();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Tipo_Veiculos.Update(tipoVeiculo);
+            _context.SaveChanges();
         }
         public void DeleteTipoVeiculo(Tipo_Veiculo tipoVeiculo)
         {
-            try
-            {
-                _context.Set<Tipo_Veiculo>().Remove(tipoVeiculo);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Tipo_Veiculos.Remove(tipoVeiculo);
+            _context.SaveChanges();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -25,40 +24,19 @@ namespace Infra.Repositories
 
         public void InsertTipoServico(Tipo_Servico tipo_Servico)
         {
-            try
-            {
-                _context.Tipo_Servicos.Add(tipo_Servico);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+
+            _context.Tipo_Servicos.Add(tipo_Servico);
+            _context.SaveChanges();
         }
         public void UpdateTipoServico(Tipo_Servico tipoServico)
         {
-            try
-            {
-                _context.Entry(tipoServico).State = EntityState.Modified;
-                _context.SaveChanges();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Tipo_Servicos.Update(tipoServico);
+            _context.SaveChanges();
         }
         public void DeleteTipoServico(Tipo_Servico tipoServico)
         {
-            try
-            {
-                _context.Set<Tipo_Servico>().Remove(tipoServico);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Tipo_Servicos.Remove(tipoServico);
+            _context.SaveChanges();
         }
     }
 }

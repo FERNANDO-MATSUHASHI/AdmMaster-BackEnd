@@ -1,6 +1,5 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -20,41 +19,20 @@ namespace Infra.Repositories
         {
             return _context.Atendimentos.Find(id);
         }
-        public void InsertAtendimento(Atendimento atendimento, int idViatura, int idUsuario)
+        public void InsertAtendimento(Atendimento atendimento)
         {
-            try
-            {
-                _context.Atendimentos.Add(atendimento);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Atendimentos.Add(atendimento);
+            _context.SaveChanges();
         }
         public void UpdateAtendimento(Atendimento atendimento)
         {
-            try
-            {
-                _context.Entry(atendimento).State = EntityState.Modified;
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Atendimentos.Update(atendimento);
+            _context.SaveChanges();
         }
         public void DeleteAtendimento(Atendimento atendimento)
         {
-            try
-            {
-                _context.Set<Atendimento>().Remove(atendimento);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            _context.Atendimentos.Remove(atendimento);
+            _context.SaveChanges();
         }
     }
 }
