@@ -20,8 +20,8 @@ namespace Application.Controllers
         {
             try
             {
-                var niveis = _atendimentoApplication.GetAtendimento();
-                return Ok(niveis);
+                var atendimentos = _atendimentoApplication.GetAtendimento();
+                return Ok(atendimentos);
             }
             catch (Exception ex)
             {
@@ -34,8 +34,8 @@ namespace Application.Controllers
         {
             try
             {
-                var nivel = _atendimentoApplication.GetAtendimentoById(id);
-                return Ok(nivel);
+                var atendimento = _atendimentoApplication.GetAtendimentoById(id);
+                return Ok(atendimento);
             }
             catch (Exception ex)
             {

@@ -26,7 +26,7 @@ namespace Domain.Service.Services
 
         public void InsertAtendimento(AtendimentoViewModel AtendimentoViewModel)
         {
-            var Atendimento = new Atendimento
+            var atendimento = new Atendimento
             {
                 data = AtendimentoViewModel.data,
                 qru = AtendimentoViewModel.qru,
@@ -36,7 +36,7 @@ namespace Domain.Service.Services
                 valor_total = AtendimentoViewModel.valor_total
             };
 
-            _atendimentoRepository.InsertAtendimento(Atendimento);
+            _atendimentoRepository.InsertAtendimento(atendimento);
         }
 
         public void UpdateAtendimento(int id, AtendimentoViewModel atendimentoViewModel)

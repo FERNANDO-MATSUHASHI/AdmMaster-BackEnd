@@ -1,8 +1,7 @@
-﻿namespace Domain.Entites
+﻿namespace Domain.ViewModel
 {
-    public class Tipo_Veiculo
+    public class TipoVeiculoViewModel
     {
-        public int Id { get; set; }
         public string marca { get; set; }
         public string modelo { get; set; }
         public string placa { get; set; }

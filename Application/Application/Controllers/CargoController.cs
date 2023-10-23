@@ -20,8 +20,8 @@ namespace Application.Controllers
         {
             try
             {
-                var niveis = _cargoApplication.GetCargo();
-                return Ok(niveis);
+                var cargos = _cargoApplication.GetCargo();
+                return Ok(cargos);
             }
             catch (Exception ex)
             {
@@ -34,8 +34,8 @@ namespace Application.Controllers
         {
             try
             {
-                var nivel = _cargoApplication.GetCargoById(id);
-                return Ok(nivel);
+                var cargo = _cargoApplication.GetCargoById(id);
+                return Ok(cargo);
             }
             catch (Exception ex)
             {

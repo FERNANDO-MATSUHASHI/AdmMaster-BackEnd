@@ -26,12 +26,12 @@ namespace Domain.Service.Services
 
         public void InsertCargo(CargoViewModel cargoViewModel)
         {
-            var Cargo = new Cargo
+            var cargo = new Cargo
             {
                 descricao = cargoViewModel.descricao
             };
 
-            _cargoRepository.InsertCargo(Cargo);
+            _cargoRepository.InsertCargo(cargo);
         }
 
         public void UpdateCargo(int id, CargoViewModel cargoViewModel)

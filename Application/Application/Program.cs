@@ -26,12 +26,16 @@ builder.Services.AddScoped<IViaturaRepository, ViaturaRepository>();
 builder.Services.AddScoped<INivelApplication, NivelApplication>();
 builder.Services.AddScoped<IAtendimentoApplication, AtendimentoApplication>();
 builder.Services.AddScoped<ICargoApplication, CargoApplication>();
+builder.Services.AddScoped<ITipoServicoApplication, TipoServicoApplication>();
+builder.Services.AddScoped<ITipoVeiculoApplication, TipoVeiculoApplication>();
 
 
 //Dependency Injection Service
 builder.Services.AddScoped<INivelService, NivelService>();
 builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
 builder.Services.AddScoped<ICargoService, CargoService>();
+builder.Services.AddScoped<ITipoServicoService, TipoServicoService>();
+builder.Services.AddScoped<ITipoVeiculoService, TipoVeiculoService>();
 
 ////Dependency Injection SqlContext
 builder.Services.AddScoped<SqlContext, SqlContext>();
