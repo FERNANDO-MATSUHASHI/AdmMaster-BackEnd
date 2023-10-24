@@ -14,9 +14,9 @@ namespace Domain.Service.Services
             _nivelRepository = nivelRepository;
         }
 
-        public List<Nivel> GetNivel()
+        public List<Nivel> GetNiveis()
         {
-            return _nivelRepository.GetNivel();
+            return _nivelRepository.GetNiveis();
         }
 
         public Nivel GetNivelById(int id)

@@ -12,7 +12,7 @@ namespace Infra.Repositories
             _context = context;
         }
 
-        public List<Nivel> GetNivel()
+        public List<Nivel> GetNiveis()
         {
             return _context.Niveis.ToList();
         }

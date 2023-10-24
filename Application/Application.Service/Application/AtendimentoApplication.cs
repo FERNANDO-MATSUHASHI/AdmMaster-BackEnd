@@ -14,9 +14,9 @@ namespace Application.Service.Application
             _atendimentoService = atendimentoService;
         }
 
-        public List<Atendimento> GetAtendimento()
+        public List<Atendimento> GetAtendimentos()
         {
-            return _atendimentoService.GetAtendimento();
+            return _atendimentoService.GetAtendimentos();
         }
 
         public Atendimento GetAtendimentoById(int id)

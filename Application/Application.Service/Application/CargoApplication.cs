@@ -14,9 +14,9 @@ namespace Application.Service.Application
             _cargoService = cargoService;
         }
 
-        public List<Cargo> GetCargo()
+        public List<Cargo> GetCargos()
         {
-            return _cargoService.GetCargo();
+            return _cargoService.GetCargos();
         }
 
         public Cargo GetCargoById(int id)

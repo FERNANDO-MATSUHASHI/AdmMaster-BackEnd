@@ -16,11 +16,11 @@ namespace Application.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetCargo()
+        public IActionResult GetCargos()
         {
             try
             {
-                var cargos = _cargoApplication.GetCargo();
+                var cargos = _cargoApplication.GetCargos();
                 return Ok(cargos);
             }
             catch (Exception ex)

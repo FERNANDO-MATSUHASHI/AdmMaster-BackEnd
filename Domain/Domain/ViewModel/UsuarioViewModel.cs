@@ -1,15 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Entites
+namespace Domain.ViewModel
 {
-    public class Usuario
+    public class UsuarioViewModel
     {
-        public int Id { get; set; }
         public string nome { get; set; }
         public int cpf { get; set; }
         public string email { get; set; }
         public DateTime data_nascimento { get; set; }
-        public DateTime criado_em { get; set; }
         public int cep { get; set; }
         public string rua { get; set; }
         public int numero { get; set; }
@@ -21,6 +19,5 @@ namespace Domain.Entites
         [Column(TypeName = "decimal(5,2)")]
         public Decimal comissao { get; set; }
         public int? gerenteId { get; set; }
-        public List<Cargo>? Cargos { get; set; }
     }
 }

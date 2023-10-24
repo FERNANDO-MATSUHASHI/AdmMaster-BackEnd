@@ -6,7 +6,7 @@ namespace Domain.Service.Interfaces
     public interface ICargoService
     {
         void DeleteCargo(int id);
-        List<Cargo> GetCargo();
+        List<Cargo> GetCargos();
         Cargo GetCargoById(int id);
         void InsertCargo(CargoViewModel cargoViewModel);
         void UpdateCargo(int id, CargoViewModel cargoViewModel);

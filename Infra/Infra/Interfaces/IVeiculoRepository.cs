@@ -4,7 +4,7 @@ namespace Infra.Interfaces
 {
     public interface IVeiculoRepository
     {
-        public List<Veiculo> GetVeiculo();
+        public List<Veiculo> GetVeiculos();
         public Veiculo GetVeiculoById(int id);
         public void InsertVeiculo(Veiculo veiculo);
         public void UpdateVeiculo(Veiculo veiculo);

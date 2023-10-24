@@ -12,7 +12,7 @@ namespace Infra.Repositories
             _context = context;
         }
 
-        public List<Usuario> GetUsuario()
+        public List<Usuario> GetUsuarios()
         {
             return _context.Usuarios.ToList();
         }

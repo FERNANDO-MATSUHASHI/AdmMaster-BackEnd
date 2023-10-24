@@ -14,9 +14,9 @@ namespace Application.Service.Application
             _nivelService = nivelService;
         }
 
-        public List<Nivel> GetNivel()
+        public List<Nivel> GetNiveis()
         {
-            return _nivelService.GetNivel();
+            return _nivelService.GetNiveis();
         }
 
         public Nivel GetNivelById(int id)

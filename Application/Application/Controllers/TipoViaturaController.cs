@@ -1,4 +1,5 @@
-﻿using Domain.Entites;
+﻿using Application.Service.Interface;
+using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
@@ -7,34 +8,81 @@ namespace Application.Controllers
     [ApiController]
     public class TipoViaturaController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetTipoViatura()
+        private readonly ITipoViaturaApplication _tipoViaturaApplication;
+
+        public TipoViaturaController(ITipoViaturaApplication tipoViaturaApplication)
         {
-            return Ok();
+            _tipoViaturaApplication = tipoViaturaApplication;
+        }
+
+        [HttpGet]
+        public IActionResult GetTipoViaturas()
+        {
+            try
+            {
+                var tipoViaturas = _tipoViaturaApplication.GetTipoViaturas();
+                return Ok(tipoViaturas);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult GetTipoViaturaById(int id)
         {
-            return Ok();
+            try
+            {
+                var tipoViatura = _tipoViaturaApplication.GetTipoViaturaById(id);
+                return Ok(tipoViatura);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
-        public IActionResult InsertTipoViatura(Tipo_Viatura tipoViatura)
+        public IActionResult InsertTipoViatura(TipoViaturaViewModel tipoViaturaViewModel)
         {
-            return Ok();
+            try
+            {
+                _tipoViaturaApplication.InsertTipoViatura(tipoViaturaViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPut]
-        public IActionResult UpdateTipoViatura(Tipo_Viatura tipoViatura)
+        [HttpPut("{id}")]
+        public IActionResult UpdateTipoViatura(int id, TipoViaturaViewModel tipoViaturaViewModel)
         {
-            return Ok();
+            try
+            {
+                _tipoViaturaApplication.UpdateTipoViatura(id, tipoViaturaViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete()]
-        public IActionResult DeleteTipoViatura(Tipo_Viatura tipoViatura)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTipoViatura(int id)
         {
-            return Ok();
+            try
+            {
+                _tipoViaturaApplication.DeleteTipoViatura(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

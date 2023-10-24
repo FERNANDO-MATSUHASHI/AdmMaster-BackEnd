@@ -16,11 +16,11 @@ namespace Application.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAtendimento()
+        public IActionResult GetAtendimentos()
         {
             try
             {
-                var atendimentos = _atendimentoApplication.GetAtendimento();
+                var atendimentos = _atendimentoApplication.GetAtendimentos();
                 return Ok(atendimentos);
             }
             catch (Exception ex)

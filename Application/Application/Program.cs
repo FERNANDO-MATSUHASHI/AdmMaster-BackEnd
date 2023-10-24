@@ -38,6 +38,9 @@ builder.Services.AddScoped<IAtendimentoApplication, AtendimentoApplication>();
 builder.Services.AddScoped<ICargoApplication, CargoApplication>();
 builder.Services.AddScoped<ITipoServicoApplication, TipoServicoApplication>();
 builder.Services.AddScoped<ITipoVeiculoApplication, TipoVeiculoApplication>();
+builder.Services.AddScoped<ITipoViaturaApplication, TipoViaturaApplication>();
+builder.Services.AddScoped<IUsuarioApplication, UsuarioApplication>();
+builder.Services.AddScoped<IVeiculoApplication, VeiculoApplication>();
 
 
 //Dependency Injection Service
@@ -46,6 +49,9 @@ builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
 builder.Services.AddScoped<ICargoService, CargoService>();
 builder.Services.AddScoped<ITipoServicoService, TipoServicoService>();
 builder.Services.AddScoped<ITipoVeiculoService, TipoVeiculoService>();
+builder.Services.AddScoped<ITipoViaturaService, TipoViaturaService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IVeiculoService, VeiculoService>();
 
 ////Dependency Injection SqlContext
 builder.Services.AddScoped<SqlContext, SqlContext>();

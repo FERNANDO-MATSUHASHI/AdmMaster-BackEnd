@@ -1,4 +1,5 @@
-﻿using Domain.Entites;
+﻿using Application.Service.Interface;
+using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
@@ -7,34 +8,81 @@ namespace Application.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetUsuario()
+        private readonly IUsuarioApplication _usuarioApplication;
+
+        public UsuarioController(IUsuarioApplication usuarioApplication)
         {
-            return Ok();
+            _usuarioApplication = usuarioApplication;
+        }
+
+        [HttpGet]
+        public IActionResult GetUsuarios()
+        {
+            try
+            {
+                var usuarios = _usuarioApplication.GetUsuarios();
+                return Ok(usuarios);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult GetUsuarioById(int id)
         {
-            return Ok();
+            try
+            {
+                var usuario = _usuarioApplication.GetUsuarioById(id);
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
-        public IActionResult InsertUsuario(Usuario usuario)
+        public IActionResult InsertUsuario(UsuarioViewModel usuarioViewModel)
         {
-            return Ok();
+            try
+            {
+                _usuarioApplication.InsertUsuario(usuarioViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPut]
-        public IActionResult UpdateUsuario(Usuario usuario)
+        [HttpPut("{id}")]
+        public IActionResult UpdateUsuario(int id, UsuarioViewModel usuarioViewModel)
         {
-            return Ok();
+            try
+            {
+                _usuarioApplication.UpdateUsuario(id, usuarioViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete()]
-        public IActionResult DeleteUsuario(Usuario usuario)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUsuario(int id)
         {
-            return Ok();
+            try
+            {
+                _usuarioApplication.DeleteUsuario(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

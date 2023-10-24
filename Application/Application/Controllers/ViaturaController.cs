@@ -1,4 +1,5 @@
-﻿using Domain.Entites;
+﻿using Application.Service.Interface;
+using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
@@ -7,34 +8,81 @@ namespace Application.Controllers
     [ApiController]
     public class ViaturaController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetViatura()
+        public readonly IViaturaApplication _viaturaApplication;
+
+        public ViaturaController(IViaturaApplication viaturaApplication)
         {
-            return Ok();
+            _viaturaApplication = viaturaApplication;
+        }
+
+        [HttpGet]
+        public IActionResult GetViaturas()
+        {
+            try
+            {
+                var viaturas = _viaturaApplication.GetViaturas();
+                return Ok(viaturas);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult GetViaturaById(int id)
         {
-            return Ok();
+            try
+            {
+                var viatura = _viaturaApplication.GetViaturaById(id);
+                return Ok(viatura);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
-        public IActionResult InsertViatura(Viatura viatura)
+        public IActionResult InsertViatura(ViaturaViewModel viaturaViewModel)
         {
-            return Ok();
+            try
+            {
+                _viaturaApplication.InsertViatura(viaturaViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPut]
-        public IActionResult UpdateViatura(Viatura viatura)
+        [HttpPut("{id}")]
+        public IActionResult UpdateViatura(int id, ViaturaViewModel viaturaViewModel)
         {
-            return Ok();
+            try
+            {
+                _viaturaApplication.UpdateViatura(id, viaturaViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete()]
-        public IActionResult DeleteViatura(Viatura viatura)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteViatura(int id)
         {
-            return Ok();
+            try
+            {
+                _viaturaApplication.DeleteViatura(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

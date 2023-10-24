@@ -16,11 +16,11 @@ namespace Application.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetNivel()
+        public IActionResult GetNiveis()
         {
             try
             {
-                var niveis = _nivelApplication.GetNivel();
+                var niveis = _nivelApplication.GetNiveis();
                 return Ok(niveis);
             }
             catch (Exception ex)

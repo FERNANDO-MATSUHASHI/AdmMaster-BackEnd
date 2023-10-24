@@ -12,7 +12,7 @@ namespace Infra.Repositories
             _context = context;
         }
 
-        public List<Veiculo> GetVeiculo()
+        public List<Veiculo> GetVeiculos()
         {
             return _context.Veiculos.ToList();
         }

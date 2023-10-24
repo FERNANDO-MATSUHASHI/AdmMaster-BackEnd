@@ -4,7 +4,7 @@ namespace Infra.Interfaces
 {
     public interface IViaturaRepository
     {
-        public List<Viatura> GetViatura();
+        public List<Viatura> GetViaturas();
         public Viatura GetViaturaById(int id);
         public void InsertViatura(Viatura viatura);
         public void UpdateViatura(Viatura viatura);

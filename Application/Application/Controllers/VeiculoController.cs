@@ -1,4 +1,5 @@
-﻿using Domain.Entites;
+﻿using Application.Service.Interface;
+using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
@@ -7,34 +8,81 @@ namespace Application.Controllers
     [ApiController]
     public class VeiculoController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetVeiculo()
+        public readonly IVeiculoApplication _veiculoApplication;
+
+        public VeiculoController(IVeiculoApplication veiculoApplication)
         {
-            return Ok();
+            _veiculoApplication = veiculoApplication;
+        }
+
+        [HttpGet]
+        public IActionResult GetVeiculos()
+        {
+            try
+            {
+                var veiculos = _veiculoApplication.GetVeiculos();
+                return Ok(veiculos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult GetVeiculoById(int id)
         {
-            return Ok();
+            try
+            {
+                var veiculo = _veiculoApplication.GetVeiculoById(id);
+                return Ok(veiculo);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
-        public IActionResult InsertVeiculo(Veiculo veiculo)
+        public IActionResult InsertVeiculo(VeiculoViewModel veiculoViewModel)
         {
-            return Ok();
+            try
+            {
+                _veiculoApplication.InsertVeiculo(veiculoViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPut]
-        public IActionResult UpdateVeiculo(Veiculo veiculo)
+        [HttpPut("{id}")]
+        public IActionResult UpdateVeiculo(int id, VeiculoViewModel veiculoViewModel)
         {
-            return Ok();
+            try
+            {
+                _veiculoApplication.UpdateVeiculo(id, veiculoViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete()]
-        public IActionResult DeleteVeiculo(Veiculo veiculo)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteVeiculo(int id)
         {
-            return Ok();
+            try
+            {
+                _veiculoApplication.DeleteVeiculo(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

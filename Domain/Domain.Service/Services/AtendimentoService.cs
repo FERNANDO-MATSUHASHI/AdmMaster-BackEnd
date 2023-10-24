@@ -14,7 +14,7 @@ namespace Domain.Service.Services
             _atendimentoRepository = atendimentoRepository;
         }
 
-        public List<Atendimento> GetAtendimento()
+        public List<Atendimento> GetAtendimentos()
         {
             return _atendimentoRepository.GetAtendimentos();
         }

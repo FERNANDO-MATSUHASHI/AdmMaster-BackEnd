@@ -14,7 +14,7 @@ namespace Domain.Service.Services
             _cargoRepository = cargoRepository;
         }
 
-        public List<Cargo> GetCargo()
+        public List<Cargo> GetCargos()
         {
             return _cargoRepository.GetCargos();
         }
