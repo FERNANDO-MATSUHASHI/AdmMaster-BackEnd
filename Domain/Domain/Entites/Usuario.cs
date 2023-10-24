@@ -21,6 +21,8 @@ namespace Domain.Entites
         [Column(TypeName = "decimal(5,2)")]
         public Decimal comissao { get; set; }
         public int? gerenteId { get; set; }
-        public List<Cargo>? Cargos { get; set; }
+        public int cargoId { get; set; }
+
+        public Cargo Cargo { get; set; }
     }
 }

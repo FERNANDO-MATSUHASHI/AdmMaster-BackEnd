@@ -7,5 +7,7 @@
         public string modelo { get; set; }
         public string placa { get; set; }
         public string descricao { get; set; }
+
+        public List<Veiculo> Veiculos { get; set; }
     }
 }
