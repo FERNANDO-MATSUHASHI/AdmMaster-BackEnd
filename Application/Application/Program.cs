@@ -1,14 +1,24 @@
 using Application.Service.Application;
 using Application.Service.Interface;
+using Domain.Service;
 using Domain.Service.Interfaces;
 using Domain.Service.Services;
 using Infra;
 using Infra.Interfaces;
 using Infra.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //IOC Inversion of Control - Dependency Injection
+
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+});
 
 //Dependency Injection Repository
 builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
@@ -45,6 +55,56 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+static void ConfigureServices(IServiceCollection services)
+{
+    services.AddCors();
+    services.AddControllers();
+
+    var key = Encoding.ASCII.GetBytes(Settings.Secret);
+    services.AddAuthentication(x =>
+    {
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(x =>
+    {
+        x.RequireHttpsMetadata = false;
+        x.SaveToken = true;
+        x.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+}
+static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseRouting();
+
+    app.UseCors(x => x
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllers();
+    });
+}
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -56,8 +116,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
+
+app.UseAuthentication();
 
 app.MapControllers();
 
 app.Run();
+
+
