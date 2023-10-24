@@ -14,9 +14,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra\Infra.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application\Application.csproj", "{0ED16CEC-B8B2-4936-B4C1-5409EECDCD82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Service", "Application\Application.Service\Application.Service.csproj", "{1112EFAF-85C3-4AAD-9DBF-2EA0AE5D9819}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Service", "Application\Application.Service\Application.Service.csproj", "{1112EFAF-85C3-4AAD-9DBF-2EA0AE5D9819}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Service", "Domain\Domain.Service\Domain.Service.csproj", "{32CC0D1F-B570-43FC-83BD-EE042DCCE5A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Service", "Domain\Domain.Service\Domain.Service.csproj", "{32CC0D1F-B570-43FC-83BD-EE042DCCE5A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

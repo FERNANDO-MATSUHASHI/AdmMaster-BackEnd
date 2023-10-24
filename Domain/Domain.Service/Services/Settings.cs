@@ -1,4 +1,4 @@
-﻿namespace Domain.Service
+﻿namespace Domain.Service.Services
 {
     public class Settings
     {

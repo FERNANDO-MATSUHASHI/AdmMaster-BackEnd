@@ -1,6 +1,5 @@
 using Application.Service.Application;
 using Application.Service.Interface;
-using Domain.Service;
 using Domain.Service.Interfaces;
 using Domain.Service.Services;
 using Infra;
@@ -49,6 +48,9 @@ builder.Services.AddScoped<ITipoVeiculoService, TipoVeiculoService>();
 
 ////Dependency Injection SqlContext
 builder.Services.AddScoped<SqlContext, SqlContext>();
+
+////Dependency Injection SqlContext
+builder.Services.AddScoped<TokenService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

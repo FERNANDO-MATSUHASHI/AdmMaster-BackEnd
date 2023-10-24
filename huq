@@ -1,0 +1,205 @@
+[33mcommit 60be136528c828dfa2bbf0c687aa9a121869effc[m[33m ([m[1;36mHEAD -> [m[1;32mToken[m[33m, [m[1;31morigin/Token[m[33m)[m
+Author: Denis Honorio <denishonorio7@gmail.com>
+Date:   Tue Oct 24 03:35:40 2023 -0300
+
+    arrumando token
+
+[33mcommit 1641390d189838804e7a56eb5402545d9f16e427[m
+Author: SayuriSemira <sayurisemira@gmail.com>
+Date:   Mon Oct 23 22:37:12 2023 -0300
+
+    Add Token Login
+
+[33mcommit 9d6479e91478ff98fd59d5c110cd6a73734ee074[m
+Author: Kaue <kaue.correia>
+Date:   Mon Oct 23 12:16:29 2023 -0300
+
+    controllers
+
+[33mcommit 0d4c2075dc59691b0a7356b11b95536fa7fd5743[m
+Author: Kaue <kaue.correia>
+Date:   Mon Oct 23 11:09:59 2023 -0300
+
+    ajustes
+
+[33mcommit 11adb8011fe9c8063b6c8088bb81f08fd8705807[m
+Author: Kaue <kaue.correia>
+Date:   Mon Oct 23 09:13:39 2023 -0300
+
+    .
+
+[33mcommit 84a977b21ecddab1871f6f9a57a160fd401c7fb9[m
+Author: Denis Honorio <denishonorio7@gmail.com>
+Date:   Mon Oct 23 03:01:20 2023 -0300
+
+    criação do servico de login
+
+[33mcommit dd9a13ee35b66eea6c3c50774777e5084efed72b[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 19 14:15:43 2023 -0300
+
+    Controller e novo padrao de projeto
+
+[33mcommit 7cc5dc73669e429f461f207fcbd9df9f71ff5e76[m
+Merge: 6b521b6 bd71b23
+Author: Kaue Correia <Correiakaue0>
+Date:   Wed Oct 18 20:52:18 2023 -0300
+
+    Merge branch 'main' of https://github.com/FERNANDO-MATSUHASHI/AdmMaster-BackEnd
+
+[33mcommit 6b521b636ad66a1a9d7eb9623e932d12b0b21a78[m
+Author: Kaue Correia <Correiakaue0>
+Date:   Wed Oct 18 20:52:03 2023 -0300
+
+    controller ajustes
+
+[33mcommit bd71b2347f984b5a4952ce1ecff253bbec9d51ee[m
+Author: FERNANDO-MATSUHASHI <105673940+FERNANDO-MATSUHASHI@users.noreply.github.com>
+Date:   Wed Oct 18 19:42:28 2023 -0300
+
+    Update README.md
+
+[33mcommit f17ee6d4408e39a6f77cd0941900b0647e0b62cf[m
+Author: FERNANDO-MATSUHASHI <105673940+FERNANDO-MATSUHASHI@users.noreply.github.com>
+Date:   Wed Oct 18 19:39:12 2023 -0300
+
+    Update README.md
+
+[33mcommit af9d689ab33a2e9ab928f9a0937d64b6b29b9b72[m
+Author: Kaue <kaue.correia>
+Date:   Wed Oct 18 11:27:33 2023 -0300
+
+    Controllers
+
+[33mcommit 525d9d4ca471a6a8a2d14613b70a290cf7c2a29c[m
+Author: Kaue <kaue.correia>
+Date:   Wed Oct 18 11:14:03 2023 -0300
+
+    Repositorios
+
+[33mcommit 8f98c2eec095279a5ddf492cddccfd0946515242[m
+Author: Kaue <kaue.correia>
+Date:   Wed Oct 18 09:42:12 2023 -0300
+
+    [Kaue] - Ajustes 2.0
+
+[33mcommit ef7755613c5c29a061ecc73c698269d5eda8fe51[m
+Author: Kaue <kaue.correia>
+Date:   Wed Oct 18 09:40:45 2023 -0300
+
+    [Kaue] - Ajustes
+
+[33mcommit e7092ae1d3c82a3a7c208919b762f814dcd9901e[m
+Author: Kaue <kaue.correia>
+Date:   Wed Oct 18 09:24:39 2023 -0300
+
+    [Kaue] - Repositorios e Interfaces Repositorios
+
+[33mcommit 1c10b6c4d57810974601f72d0ae6dba052ce5ded[m
+Author: Kaue <kaue.correia>
+Date:   Wed Oct 18 09:00:08 2023 -0300
+
+    ajustes
+
+[33mcommit 59245eef69e1a2e6c9a9bd18e14a73b3865bb769[m
+Merge: 038df67 4d01417
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:33:41 2023 -0300
+
+    merge
+
+[33mcommit 038df6741082d152786ae176ff54bee77cf2720c[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:31:49 2023 -0300
+
+    merge
+
+[33mcommit 4cceec3e7754bf110dec5ed7ddb47a1833ff3cb9[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:29:09 2023 -0300
+
+    ajustes
+
+[33mcommit 4d0141735551b2ecaaabfb46613ca927fdb6f350[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:28:29 2023 -0300
+
+    Ajustes api
+
+[33mcommit 3cdd98608ad7d5243790fcc86911e5508d2f8532[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:22:38 2023 -0300
+
+    ajustes infra
+
+[33mcommit 3fc55243e530877ac86b7071fd180f32870b82dc[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:20:38 2023 -0300
+
+    ajustes domain
+
+[33mcommit b921c0b512b0e4c710778595e47302f9282d0794[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:18:01 2023 -0300
+
+    ajustes
+
+[33mcommit d74f3e256ae86a77b4c11d8c0f4d9d87054840f5[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:13:49 2023 -0300
+
+    ajustes 2
+
+[33mcommit c575454ce27ee94d37af581bdb7b3d28c208b37b[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:13:00 2023 -0300
+
+    ajustes
+
+[33mcommit 256ad1e7b3cb75ae91760bd9a3b9d78d55370754[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 11:04:15 2023 -0300
+
+    ajuste
+
+[33mcommit ff0044da5e7d0fb41a92de98fcd6b87f56840452[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 10:56:27 2023 -0300
+
+    [Kaue] - Padronizando
+
+[33mcommit 5d6eb36b5e8ce103eb8e31e418e7175fd6ab5af8[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 10:50:11 2023 -0300
+
+    [Kaue] - padronizando
+
+[33mcommit 0e56015599f32393c2934e0697a4760a408552c5[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 10:45:47 2023 -0300
+
+    [Kaue] - Ajustes
+
+[33mcommit 631d7e5ef995c4b8b67d4e19580dae039ffe5037[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 10:43:41 2023 -0300
+
+    [Kaue] - tirando arquivo temporario bin
+
+[33mcommit cf405bc9546d4cacd6334b99423466eb2c27dba7[m
+Author: Kaue <kaue.correia>
+Date:   Thu Oct 5 10:37:02 2023 -0300
+
+    [Kaue] - tirando arquivos temporarios e gerados automaticamentes
+
+[33mcommit d771557b5c016e09d2e184499e4899fb21d5d0f1[m
+Author: FERNANDO-MATSUHASHI <matsu.zf@gmail.com>
+Date:   Tue Oct 3 22:37:00 2023 -0300
+
+    First Commit
+
+[33mcommit 44b08b1421bbb52b755844e6710f363ea5523451[m
+Author: FERNANDO-MATSUHASHI <matsu.zf@gmail.com>
+Date:   Tue Oct 3 22:35:57 2023 -0300
+
+    first commit
