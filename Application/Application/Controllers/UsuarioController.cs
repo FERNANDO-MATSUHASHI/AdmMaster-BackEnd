@@ -84,5 +84,19 @@ namespace Application.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost("Login")]
+        public IActionResult Login(LoginViewModel loginViewModel)
+        {
+            try
+            {
+                _usuarioApplication.Login(loginViewModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

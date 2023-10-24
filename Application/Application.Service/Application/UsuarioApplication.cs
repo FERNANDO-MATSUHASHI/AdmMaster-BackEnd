@@ -38,5 +38,10 @@ namespace Application.Service.Application
         {
             _usuarioService.DeleteUsuario(id);
         }
+
+        public void Login(LoginViewModel loginViewModel)
+        {
+            _usuarioService.Login(loginViewModel);
+        }
     }
 }

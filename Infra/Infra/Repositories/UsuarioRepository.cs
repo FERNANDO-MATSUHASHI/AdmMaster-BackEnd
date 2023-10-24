@@ -39,5 +39,10 @@ namespace Infra.Repositories
             _context.Usuarios.Remove(usuario);
             _context.SaveChanges();
         }
+
+        public Usuario? GetUsuarioByEmail(string email)
+        {
+            return _context.Usuarios.Where(x => x.email == email).FirstOrDefault();
+        }
     }
 }

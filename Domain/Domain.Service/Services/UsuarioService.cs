@@ -81,5 +81,15 @@ namespace Domain.Service.Services
 
             _usuarioRepository.DeleteUsuario(originalUsuario);
         }
+
+        public void Login(LoginViewModel loginViewModel)
+        {
+            var usuario = _usuarioRepository.GetUsuarioByEmail(loginViewModel.email);
+            if (usuario == null) throw new Exception("Usuario inexistente.");
+
+            if (usuario.senha != loginViewModel.senha) throw new Exception("Senha errada.");
+
+            var token = TokenService.GerarToken(usuario);
+        }
     }
 }

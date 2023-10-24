@@ -10,5 +10,6 @@ namespace Domain.Service.Interfaces
         Usuario GetUsuarioById(int id);
         void InsertUsuario(UsuarioViewModel usuarioViewModel);
         void UpdateUsuario(int id, UsuarioViewModel usuarioViewModel);
+        void Login(LoginViewModel loginViewModel);
     }
 }
