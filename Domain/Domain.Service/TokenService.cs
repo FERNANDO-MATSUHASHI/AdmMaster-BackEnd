@@ -10,20 +10,20 @@ namespace Domain.Service
     {
         public static string GerarToken(Usuario user)
         {
-            var manipuladorToke = new JwtSecurityTokenHandler();
+            var manipuladorToken = new JwtSecurityTokenHandler();
             var chave = Encoding.ASCII.GetBytes(Settings.Secret);
             var descritorToken = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Username.ToString()),
-                    new Claim(ClaimTypes.Role, user.Role.ToString())
+                    new Claim(ClaimTypes.Name, user.user_name.ToString()),
+                    new Claim(ClaimTypes.Role, user.senha.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(chave), SecurityAlgorithms.HmacSha256Signature)
             };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+            var token = manipuladorToken.CreateToken(descritorToken);
+            return manipuladorToken.WriteToken(token);
         }
     }
 }
