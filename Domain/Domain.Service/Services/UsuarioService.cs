@@ -24,7 +24,7 @@ namespace Domain.Service.Services
             return _usuarioRepository.GetUsuarioById(id);
         }
 
-        public void InsertUsuario(UsuarioViewModel usuarioViewModel)
+        public void InsertUsuario(UsuarioViewModel usuarioViewModel, Cargo cargo)
         {
             var usuario = new Usuario
             {
@@ -42,7 +42,8 @@ namespace Domain.Service.Services
                 senha = usuarioViewModel.senha,
                 ativo = usuarioViewModel.ativo,
                 comissao = usuarioViewModel.comissao,
-                gerenteId = usuarioViewModel.gerenteId
+                gerenteId = usuarioViewModel.gerenteId,
+                Cargo = cargo
             };
 
             _usuarioRepository.InsertUsuario(usuario);
@@ -80,6 +81,13 @@ namespace Domain.Service.Services
                 throw new Exception("Usuario nao existe.");
 
             _usuarioRepository.DeleteUsuario(originalUsuario);
+        }
+
+        public List<ColaboradoresViewModel> GetColaboradores(int gerenteId)
+        {
+            var colaboradoresViewModel = _usuarioRepository.GetColaboradoresByGerenteId(gerenteId);
+
+            return colaboradoresViewModel;
         }
 
         public void Login(LoginViewModel loginViewModel)

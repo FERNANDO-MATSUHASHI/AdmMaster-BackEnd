@@ -1,6 +1,8 @@
 ﻿using Application.Service.Interface;
 using Domain.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Application.Controllers
 {
@@ -9,10 +11,16 @@ namespace Application.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioApplication _usuarioApplication;
+        protected readonly IHttpContextAccessor _httpContextAccessor;
+        protected JwtSecurityToken? _token;
 
-        public UsuarioController(IUsuarioApplication usuarioApplication)
+        public UsuarioController(IUsuarioApplication usuarioApplication, IHttpContextAccessor httpContextAccessor)
         {
+            _httpContextAccessor = httpContextAccessor;
             _usuarioApplication = usuarioApplication;
+            var token = _httpContextAccessor.HttpContext?.Request.Headers["Authorization"].ToString();
+            if (!string.IsNullOrEmpty(token))
+                _token = new JwtSecurityToken();
         }
 
         [HttpGet]
@@ -20,6 +28,13 @@ namespace Application.Controllers
         {
             try
             {
+                if (_token != null)
+                {
+                    var usuarioIdStr = _token.Claims.FirstOrDefault(c => c.Type == "UsarId")?.Value;
+                    //if (!string.IsNullOrEmpty(usuarioIdStr))
+                    //    var teste = Convert.ToInt64(usuarioIdStr);
+                }
+
                 var usuarios = _usuarioApplication.GetUsuarios();
                 return Ok(usuarios);
             }
@@ -78,6 +93,20 @@ namespace Application.Controllers
             {
                 _usuarioApplication.DeleteUsuario(id);
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("Colaboradores/{gerenteId}")]
+        public IActionResult GetColaboradores(int gerenteId)
+        {
+            try
+            {
+                var colaboradores = _usuarioApplication.GetColaboradores(gerenteId);
+                return Ok(colaboradores);
             }
             catch (Exception ex)
             {

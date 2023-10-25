@@ -8,8 +8,9 @@ namespace Domain.Service.Interfaces
         void DeleteUsuario(int id);
         List<Usuario> GetUsuarios();
         Usuario GetUsuarioById(int id);
-        void InsertUsuario(UsuarioViewModel usuarioViewModel);
+        void InsertUsuario(UsuarioViewModel usuarioViewModel, Cargo cargo);
         void UpdateUsuario(int id, UsuarioViewModel usuarioViewModel);
         void Login(LoginViewModel loginViewModel);
+        List<ColaboradoresViewModel> GetColaboradores(int gerenteId);
     }
 }

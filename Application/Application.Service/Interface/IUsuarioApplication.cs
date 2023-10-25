@@ -11,5 +11,6 @@ namespace Application.Service.Interface
         void InsertUsuario(UsuarioViewModel usuarioViewModel);
         void UpdateUsuario(int id, UsuarioViewModel UsuarioViewModel);
         void Login(LoginViewModel loginViewModel);
+        List<ColaboradoresViewModel> GetColaboradores(int gerenteId);
     }
 }

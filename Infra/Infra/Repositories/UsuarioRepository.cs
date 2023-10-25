@@ -1,5 +1,7 @@
 ﻿using Domain.Entites;
+using Domain.ViewModel;
 using Infra.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -43,6 +45,21 @@ namespace Infra.Repositories
         public Usuario? GetUsuarioByEmail(string email)
         {
             return _context.Usuarios.Where(x => x.email == email).FirstOrDefault();
+        }
+
+        public List<ColaboradoresViewModel>? GetColaboradoresByGerenteId(int gerenteId)
+        {
+            return (from i in _context.Usuarios.AsNoTracking()
+             join cargo in _context.Cargos on i.cargoId equals cargo.Id
+             where i.gerenteId == gerenteId
+             select new ColaboradoresViewModel
+             {
+                 nome = i.nome,
+                 email = i.email,
+                 cargo = cargo.descricao,
+                 estado = i.estado,
+                 criado_em = i.criado_em.ToString("dd/MM/yyyy")
+             }).ToList();
         }
     }
 }

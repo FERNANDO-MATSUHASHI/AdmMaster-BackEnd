@@ -19,5 +19,6 @@ namespace Domain.ViewModel
         [Column(TypeName = "decimal(5,2)")]
         public Decimal comissao { get; set; }
         public int? gerenteId { get; set; }
+        public int cargoId { get; set; }
     }
 }
