@@ -11,16 +11,10 @@ namespace Application.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioApplication _usuarioApplication;
-        protected readonly IHttpContextAccessor _httpContextAccessor;
-        protected JwtSecurityToken? _token;
 
-        public UsuarioController(IUsuarioApplication usuarioApplication, IHttpContextAccessor httpContextAccessor)
+        public UsuarioController(IUsuarioApplication usuarioApplication)
         {
-            _httpContextAccessor = httpContextAccessor;
             _usuarioApplication = usuarioApplication;
-            var token = _httpContextAccessor.HttpContext?.Request.Headers["Authorization"].ToString();
-            if (!string.IsNullOrEmpty(token))
-                _token = new JwtSecurityToken();
         }
 
         [HttpGet]
@@ -28,13 +22,6 @@ namespace Application.Controllers
         {
             try
             {
-                if (_token != null)
-                {
-                    var usuarioIdStr = _token.Claims.FirstOrDefault(c => c.Type == "UsarId")?.Value;
-                    //if (!string.IsNullOrEmpty(usuarioIdStr))
-                    //    var teste = Convert.ToInt64(usuarioIdStr);
-                }
-
                 var usuarios = _usuarioApplication.GetUsuarios();
                 return Ok(usuarios);
             }

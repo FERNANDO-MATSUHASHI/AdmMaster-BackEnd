@@ -1,7 +1,6 @@
 ﻿using Application.Service.Interface;
 using Domain.Entites;
 using Domain.Service.Interfaces;
-using Domain.Service.Services;
 using Domain.ViewModel;
 
 namespace Application.Service.Application
