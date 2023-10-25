@@ -90,7 +90,7 @@ namespace Domain.Service.Services
             return colaboradoresViewModel;
         }
 
-        public void Login(LoginViewModel loginViewModel)
+        public string Login(LoginViewModel loginViewModel)
         {
             var usuario = _usuarioRepository.GetUsuarioByEmail(loginViewModel.email);
             if (usuario == null) throw new Exception("Usuario inexistente.");
@@ -98,6 +98,8 @@ namespace Domain.Service.Services
             if (usuario.senha != loginViewModel.senha) throw new Exception("Senha errada.");
 
             var token = TokenService.GerarToken(usuario);
+
+            return token;
         }
     }
 }

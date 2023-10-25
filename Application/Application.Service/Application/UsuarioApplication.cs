@@ -49,9 +49,9 @@ namespace Application.Service.Application
             return _usuarioService.GetColaboradores(gerenteId);
         }
 
-        public void Login(LoginViewModel loginViewModel)
+        public string Login(LoginViewModel loginViewModel)
         {
-            _usuarioService.Login(loginViewModel);
+            return _usuarioService.Login(loginViewModel);
         }
     }
 }

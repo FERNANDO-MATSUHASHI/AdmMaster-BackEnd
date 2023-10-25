@@ -1,11 +1,11 @@
 ﻿using Application.Service.Interface;
 using Domain.ViewModel;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace Application.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
@@ -101,13 +101,14 @@ namespace Application.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpPost("Login")]
         public IActionResult Login(LoginViewModel loginViewModel)
         {
             try
             {
-                _usuarioApplication.Login(loginViewModel);
-                return Ok();
+                var token = _usuarioApplication.Login(loginViewModel);
+                return Ok(token);
             }
             catch (Exception ex)
             {

@@ -10,7 +10,7 @@ namespace Domain.Service.Interfaces
         Usuario GetUsuarioById(int id);
         void InsertUsuario(UsuarioViewModel usuarioViewModel, Cargo cargo);
         void UpdateUsuario(int id, UsuarioViewModel usuarioViewModel);
-        void Login(LoginViewModel loginViewModel);
+        string Login(LoginViewModel loginViewModel);
         List<ColaboradoresViewModel> GetColaboradores(int gerenteId);
     }
 }
