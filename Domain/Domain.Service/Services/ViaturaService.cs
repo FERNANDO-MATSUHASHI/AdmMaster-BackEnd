@@ -29,7 +29,10 @@ namespace Domain.Service.Services
             var viatura = new Viatura
             {
                 sigla = viaturaViewModel.sigla,
-                obs_vtr = viaturaViewModel.obs_vtr
+                obs_vtr = viaturaViewModel.obs_vtr,
+                Tipo_ServicoId = viaturaViewModel.Tipo_ServicoId,
+                Tipo_ViaturaId = viaturaViewModel.Tipo_ViaturaId,
+                VeiculoId = viaturaViewModel.VeiculoId
             };
 
             _viaturaRepository.InsertViatura(viatura);
@@ -43,6 +46,9 @@ namespace Domain.Service.Services
 
             originalViatura.sigla = viaturaViewModel.sigla;
             originalViatura.obs_vtr = viaturaViewModel.obs_vtr;
+            originalViatura.Tipo_ServicoId = viaturaViewModel.Tipo_ServicoId;
+            originalViatura.Tipo_ViaturaId = viaturaViewModel.Tipo_ViaturaId;
+            originalViatura.VeiculoId = viaturaViewModel.VeiculoId;
 
             _viaturaRepository.UpdateViatura(originalViatura);
         }
