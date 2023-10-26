@@ -29,7 +29,8 @@ namespace Domain.Service.Services
             var veiculo = new Veiculo
             {
                 valor_saida = veiculoViewModel.valor_saida,
-                valor_km = veiculoViewModel.valor_km
+                valor_km = veiculoViewModel.valor_km,
+                Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId
             };
 
             _veiculoRepository.InsertVeiculo(veiculo);
@@ -43,6 +44,7 @@ namespace Domain.Service.Services
 
             originalVeiculo.valor_saida = veiculoViewModel.valor_saida;
             originalVeiculo.valor_km = veiculoViewModel.valor_km;
+            originalVeiculo.Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId;
 
             _veiculoRepository.UpdateVeiculo(originalVeiculo);
         }

@@ -24,7 +24,7 @@ namespace Domain.Service.Services
             return _usuarioRepository.GetUsuarioById(id);
         }
 
-        public void InsertUsuario(UsuarioViewModel usuarioViewModel, Cargo cargo)
+        public void InsertUsuario(UsuarioViewModel usuarioViewModel)
         {
             var usuario = new Usuario
             {
@@ -43,7 +43,7 @@ namespace Domain.Service.Services
                 ativo = usuarioViewModel.ativo,
                 comissao = usuarioViewModel.comissao,
                 gerenteId = usuarioViewModel.gerenteId,
-                Cargo = cargo
+                cargoId = usuarioViewModel.cargoId
             };
 
             _usuarioRepository.InsertUsuario(usuario);
@@ -70,6 +70,7 @@ namespace Domain.Service.Services
             originalUsuario.ativo = usuarioViewModel.ativo;
             originalUsuario.comissao = usuarioViewModel.comissao;
             originalUsuario.gerenteId = usuarioViewModel.gerenteId;
+            originalUsuario.cargoId = usuarioViewModel.cargoId;
 
             _usuarioRepository.UpdateUsuario(originalUsuario);
         }

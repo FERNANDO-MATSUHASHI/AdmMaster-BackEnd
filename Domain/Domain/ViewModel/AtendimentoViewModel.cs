@@ -12,5 +12,7 @@ namespace Domain.ViewModel
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal valor_total { get; set; }
+        public int viaturaId { get; set; }
+        public int usuarioId { get; set; }
     }
 }

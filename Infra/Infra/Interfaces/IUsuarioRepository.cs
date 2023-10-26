@@ -10,6 +10,7 @@ namespace Infra.Interfaces
         public void InsertUsuario(Usuario usuario);
         public void UpdateUsuario(Usuario usuario);
         public void DeleteUsuario(Usuario usuario);
+
         Usuario? GetUsuarioByEmail(string email);
         List<ColaboradoresViewModel>? GetColaboradoresByGerenteId(int gerenteId);
     }

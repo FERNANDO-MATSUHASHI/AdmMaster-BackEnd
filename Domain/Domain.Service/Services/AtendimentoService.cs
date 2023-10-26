@@ -33,7 +33,9 @@ namespace Domain.Service.Services
                 qth = AtendimentoViewModel.qth,
                 qti = AtendimentoViewModel.qti,
                 km = AtendimentoViewModel.km,
-                valor_total = AtendimentoViewModel.valor_total
+                valor_total = AtendimentoViewModel.valor_total,
+                viaturaId = AtendimentoViewModel.viaturaId,
+                usuarioId = AtendimentoViewModel.usuarioId
             };
 
             _atendimentoRepository.InsertAtendimento(atendimento);
@@ -51,6 +53,8 @@ namespace Domain.Service.Services
             originalAtendimento.qti = atendimentoViewModel.qti;
             originalAtendimento.km = atendimentoViewModel.km;
             originalAtendimento.valor_total = atendimentoViewModel.valor_total;
+            originalAtendimento.viaturaId = atendimentoViewModel.viaturaId;
+            originalAtendimento.usuarioId = atendimentoViewModel.usuarioId;
 
             _atendimentoRepository.UpdateAtendimento(originalAtendimento);
         }

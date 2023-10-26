@@ -34,6 +34,7 @@ builder.Services.AddAuthentication(x =>
 
 //IOC Inversion of Control - Dependency Injection
 //Dependency Injection Repository
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
 builder.Services.AddScoped<ICargoRepository, CargoRepository>();
 builder.Services.AddScoped<INivelRepository, NivelRepository>();
@@ -43,9 +44,11 @@ builder.Services.AddScoped<ITipoViaturaRepository, TipoViaturaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
 builder.Services.AddScoped<IViaturaRepository, ViaturaRepository>();
+builder.Services.AddScoped<ICadastroUserRepository, CadastroUserRepository>();
 
 
 //Dependency Injection Application
+builder.Services.AddScoped<IUsuarioApplication, UsuarioApplication>();
 builder.Services.AddScoped<INivelApplication, NivelApplication>();
 builder.Services.AddScoped<IAtendimentoApplication, AtendimentoApplication>();
 builder.Services.AddScoped<ICargoApplication, CargoApplication>();
@@ -54,9 +57,12 @@ builder.Services.AddScoped<ITipoVeiculoApplication, TipoVeiculoApplication>();
 builder.Services.AddScoped<ITipoViaturaApplication, TipoViaturaApplication>();
 builder.Services.AddScoped<IUsuarioApplication, UsuarioApplication>();
 builder.Services.AddScoped<IVeiculoApplication, VeiculoApplication>();
+builder.Services.AddScoped<IViaturaApplication, ViaturaApplication>();
+builder.Services.AddScoped<ICadastroUserApplication, CadastroUserApplication>();
 
 
 //Dependency Injection Service
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<INivelService, NivelService>();
 builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
 builder.Services.AddScoped<ICargoService, CargoService>();
@@ -65,6 +71,9 @@ builder.Services.AddScoped<ITipoVeiculoService, TipoVeiculoService>();
 builder.Services.AddScoped<ITipoViaturaService, TipoViaturaService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IVeiculoService, VeiculoService>();
+builder.Services.AddScoped<IViaturaService, ViaturaService>();
+builder.Services.AddScoped<ICadastroUserService, CadastroUserService>();
+
 
 ////Dependency Injection SqlContext
 builder.Services.AddScoped<SqlContext, SqlContext>();

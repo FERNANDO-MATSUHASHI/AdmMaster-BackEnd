@@ -5,11 +5,12 @@ namespace Domain.Service.Interfaces
 {
     public interface IUsuarioService
     {
-        void DeleteUsuario(int id);
         List<Usuario> GetUsuarios();
         Usuario GetUsuarioById(int id);
-        void InsertUsuario(UsuarioViewModel usuarioViewModel, Cargo cargo);
+        void InsertUsuario(UsuarioViewModel usuarioViewModel);
         void UpdateUsuario(int id, UsuarioViewModel usuarioViewModel);
+        void DeleteUsuario(int id);
+
         string Login(LoginViewModel loginViewModel);
         List<ColaboradoresViewModel> GetColaboradores(int gerenteId);
     }
