@@ -13,6 +13,8 @@ namespace Infra
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
+            modelBuilder.Entity<Usuario>().HasIndex(u => u.cpf).IsUnique();
+            modelBuilder.Entity<Usuario>().HasIndex(u => u.email).IsUnique();
             modelBuilder.Entity<Cargo>().ToTable("Cargo");
             modelBuilder.Entity<Nivel>().ToTable("Nivel");
             modelBuilder.Entity<Atendimento>().ToTable("Atendimento");

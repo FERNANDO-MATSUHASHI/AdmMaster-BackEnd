@@ -6,7 +6,7 @@ namespace Domain.Entites
     {
         public int Id { get; set; }
         public string nome { get; set; }
-        public int cpf { get; set; }
+        public string cpf { get; set; }
         public string email { get; set; }
         public DateTime data_nascimento { get; set; }
         public DateTime criado_em { get; set; }
