@@ -44,7 +44,6 @@ builder.Services.AddScoped<ITipoViaturaRepository, TipoViaturaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
 builder.Services.AddScoped<IViaturaRepository, ViaturaRepository>();
-builder.Services.AddScoped<ICadastroUserRepository, CadastroUserRepository>();
 
 
 //Dependency Injection Application
@@ -58,7 +57,7 @@ builder.Services.AddScoped<ITipoViaturaApplication, TipoViaturaApplication>();
 builder.Services.AddScoped<IUsuarioApplication, UsuarioApplication>();
 builder.Services.AddScoped<IVeiculoApplication, VeiculoApplication>();
 builder.Services.AddScoped<IViaturaApplication, ViaturaApplication>();
-builder.Services.AddScoped<ICadastroUserApplication, CadastroUserApplication>();
+builder.Services.AddScoped<ICadastroAdminApplication, CadastroAdminApplication>();
 
 
 //Dependency Injection Service
@@ -72,7 +71,7 @@ builder.Services.AddScoped<ITipoViaturaService, TipoViaturaService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IVeiculoService, VeiculoService>();
 builder.Services.AddScoped<IViaturaService, ViaturaService>();
-builder.Services.AddScoped<ICadastroUserService, CadastroUserService>();
+builder.Services.AddScoped<ICadastroAdminService, CadastroAdminService>();
 
 
 ////Dependency Injection SqlContext
