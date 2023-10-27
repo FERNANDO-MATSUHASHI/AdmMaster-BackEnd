@@ -84,9 +84,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Frg.Core API",
-        Version = $"v1_teste",
-        Description = "API para consumo de dados do Módulo Base"
+        Title = "AdmMaster API",
+        Version = $"v1",
+        Description = "API para consumo de dados do Front em Vue"
     });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
