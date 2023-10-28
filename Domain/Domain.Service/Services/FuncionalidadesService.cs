@@ -7,7 +7,7 @@ namespace Domain.Service.Services
         public static decimal CalcularComissao(decimal comissaoPorcentagem, decimal valor)
         {
             var comissao = valor * (comissaoPorcentagem / 100);
-            return comissao + valor;
+            return comissao;
         }
 
         public static decimal CalcularFaturamento(List<Atendimento> atendimentos)

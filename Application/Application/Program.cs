@@ -13,6 +13,22 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Autorização para requisição CORs
+//builder.Services.AddCors();
+
+//builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+//{
+//    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+//}));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+        builder.WithOrigins("*")
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+});
+
+
 var key = Encoding.ASCII.GetBytes(Settings.Secret);
 builder.Services.AddAuthentication(x =>
 {
@@ -127,6 +143,14 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
+////Autorização para requisição CORs
+//app.UseCors("corsapp");
+//app.UseAuthorization();
+
+//app.UseAuthentication();
+//app.UseAuthorization();
+app.UseCors("AllowSpecificOrigin");
+
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -134,4 +158,9 @@ app.MapControllers();
 
 app.Run();
 
-
+//app.UseCors(c =>
+//{
+//    c.AllowAnyHeader();
+//    c.AllowAnyMethod();
+//    c.AllowAnyOrigin();
+//});
