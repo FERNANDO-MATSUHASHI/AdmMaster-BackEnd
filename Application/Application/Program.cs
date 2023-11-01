@@ -52,6 +52,7 @@ builder.Services.AddAuthentication(x =>
 //Dependency Injection Repository
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
+builder.Services.AddScoped<IDespesasAtendimentoRepository, DespesasAtendimentoRepository>();
 builder.Services.AddScoped<ICargoRepository, CargoRepository>();
 builder.Services.AddScoped<INivelRepository, NivelRepository>();
 builder.Services.AddScoped<ITipoServicoRepository, TipoServicoRepository>();
@@ -66,6 +67,7 @@ builder.Services.AddScoped<IViaturaRepository, ViaturaRepository>();
 builder.Services.AddScoped<IUsuarioApplication, UsuarioApplication>();
 builder.Services.AddScoped<INivelApplication, NivelApplication>();
 builder.Services.AddScoped<IAtendimentoApplication, AtendimentoApplication>();
+builder.Services.AddScoped<IDespesasAtendimentoApplication, DespesasAtendimentoApplication>();
 builder.Services.AddScoped<ICargoApplication, CargoApplication>();
 builder.Services.AddScoped<ITipoServicoApplication, TipoServicoApplication>();
 builder.Services.AddScoped<ITipoVeiculoApplication, TipoVeiculoApplication>();
@@ -80,6 +82,7 @@ builder.Services.AddScoped<ICadastroAdminApplication, CadastroAdminApplication>(
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<INivelService, NivelService>();
 builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
+builder.Services.AddScoped<IDespesasAtendimentoService, DespesasAtendimentoService>();
 builder.Services.AddScoped<ICargoService, CargoService>();
 builder.Services.AddScoped<ITipoServicoService, TipoServicoService>();
 builder.Services.AddScoped<ITipoVeiculoService, TipoVeiculoService>();

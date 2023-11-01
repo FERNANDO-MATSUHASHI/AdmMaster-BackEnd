@@ -16,6 +16,7 @@ namespace Infra
             modelBuilder.Entity<Cargo>().ToTable("Cargo");
             modelBuilder.Entity<Nivel>().ToTable("Nivel");
             modelBuilder.Entity<Atendimento>().ToTable("Atendimento");
+            modelBuilder.Entity<Despesas_Atendimento>().ToTable("Despesas_Atendimento");
             modelBuilder.Entity<Viatura>().ToTable("Viatura");
             modelBuilder.Entity<Tipo_Viatura>().ToTable("Tipo_Viatura");
             modelBuilder.Entity<Veiculo>().ToTable("Veiculo");
@@ -24,6 +25,7 @@ namespace Infra
         }
 
         public DbSet<Atendimento>? Atendimentos { get; set; }
+        public DbSet<Despesas_Atendimento>? DespesasAtendimento { get; set; }
         public DbSet<Usuario>? Usuarios { get; set; }
         public DbSet<Veiculo>? Veiculos { get; set; }
         public DbSet<Viatura>? Viaturas { get; set; }
