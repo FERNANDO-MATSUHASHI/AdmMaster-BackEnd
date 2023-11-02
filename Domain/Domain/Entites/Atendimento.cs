@@ -8,7 +8,7 @@ namespace Domain.Entites
         public DateTime data { get; set; }
         public string qru { get; set; }
         public string qth { get; set; }
-        public string qti { get; set; }
+        public string? qti { get; set; }
         public int km { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
