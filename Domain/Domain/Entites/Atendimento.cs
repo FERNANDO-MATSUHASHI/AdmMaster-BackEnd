@@ -12,6 +12,9 @@ namespace Domain.Entites
         public int km { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
+        public decimal noturno { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
         public decimal valor_total { get; set; }
         
         public int viaturaId { get; set; }

@@ -9,10 +9,14 @@ namespace Domain.Entites
 {
     public class Despesas_Atendimento
     {
-        public int DespesaId { get; set; }
+        public int Id { get; set; }
         public int AtendimentoId { get; set; }
         public Atendimento? Atendimento { get; set; }
+        public string descricao { get; set; }
+        public string tipo { get; set; }
+        public DateTime data { get; set; }
+
         [Column(TypeName = "decimal(18,2)")]
-        public decimal valor_comissao { get; set; }
+        public decimal valor { get; set; }
     }
 }

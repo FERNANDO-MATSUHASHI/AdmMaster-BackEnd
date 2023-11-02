@@ -7,9 +7,9 @@ namespace Application.Service.Application
 {
     public class DespesasAtendimentoApplication : IDespesasAtendimentoApplication
     {
-        private readonly IDespesasAtendimentoApplication _despesaService;
+        private readonly IDespesasAtendimentoService _despesaService;
 
-        public DespesasAtendimentoApplication(IDespesasAtendimentoApplication despesaService)
+        public DespesasAtendimentoApplication(IDespesasAtendimentoService despesaService)
         {
             _despesaService = despesaService;
         }

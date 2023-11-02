@@ -30,7 +30,7 @@ namespace Domain.Service.Services
             var despesa = new Despesas_Atendimento
             {
                 AtendimentoId = DespesaViewModel.AtendimentoId,
-                valor_comissao = DespesaViewModel.valor_comissao
+                valor = DespesaViewModel.valor
             };
 
             _despesasRepository.InsertDespesa(despesa);
@@ -46,7 +46,7 @@ namespace Domain.Service.Services
                 throw new Exception("Atendimento não existe.");
 
             despesa.AtendimentoId = despesaViewModel.AtendimentoId;
-            despesa.valor_comissao = despesaViewModel.valor_comissao;
+            despesa.valor = despesaViewModel.valor;
 
             _despesasRepository.UpdateDespesa(despesa);
         }
