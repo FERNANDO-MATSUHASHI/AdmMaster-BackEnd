@@ -11,8 +11,13 @@ namespace Domain.Entites
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal valor_km { get; set; }
-        public int Tipo_VeiculoId { get; set; }
 
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal adicional_noturno { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal hora_parada { get; set; }
+        public int Tipo_VeiculoId { get; set; }
         public Tipo_Veiculo? Tipo_Veiculo { get; set; }
 
         public List<Viatura>? Viaturas { get; set; }

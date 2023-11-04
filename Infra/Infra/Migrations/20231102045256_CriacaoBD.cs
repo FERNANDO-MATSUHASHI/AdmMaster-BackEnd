@@ -186,16 +186,23 @@ namespace Infra.Migrations
                     data = table.Column<DateTime>(type: "datetime2", nullable: false),
                     qru = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     qth = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    qti = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    qti = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     km = table.Column<int>(type: "int", nullable: false),
                     noturno = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     valor_total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     viaturaId = table.Column<int>(type: "int", nullable: false),
-                    usuarioId = table.Column<int>(type: "int", nullable: false)
+                    usuarioId = table.Column<int>(type: "int", nullable: false),
+                    tipoServicoId = table.Column<int>(type: "int", nullable: false),
+                    Tipo_ServicoId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Atendimento", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Atendimento_Tipo_Servico_Tipo_ServicoId",
+                        column: x => x.Tipo_ServicoId,
+                        principalTable: "Tipo_Servico",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Atendimento_Usuario_usuarioId",
                         column: x => x.usuarioId,
@@ -232,6 +239,11 @@ namespace Infra.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Atendimento_Tipo_ServicoId",
+                table: "Atendimento",
+                column: "Tipo_ServicoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Atendimento_usuarioId",

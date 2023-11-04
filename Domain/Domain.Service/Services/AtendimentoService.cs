@@ -30,9 +30,15 @@ namespace Domain.Service.Services
             {
                 data = AtendimentoViewModel.data,
                 qru = AtendimentoViewModel.qru,
+                tipoServicoId = AtendimentoViewModel.tipoServicoId,
                 qth = AtendimentoViewModel.qth,
                 qti = AtendimentoViewModel.qti,
                 km = AtendimentoViewModel.km,
+                noturno = AtendimentoViewModel.noturno,
+                qtd_hora_parada = AtendimentoViewModel.qtd_hora_parada,
+                hospedagem = AtendimentoViewModel.hospedagem,
+                qtd_pedagio = AtendimentoViewModel.qtd_pedagio,
+                pedagio = AtendimentoViewModel.pedagio,
                 valor_total = AtendimentoViewModel.valor_total,
                 viaturaId = AtendimentoViewModel.viaturaId,
                 usuarioId = AtendimentoViewModel.usuarioId
@@ -52,6 +58,11 @@ namespace Domain.Service.Services
             originalAtendimento.qth = atendimentoViewModel.qth;
             originalAtendimento.qti = atendimentoViewModel.qti;
             originalAtendimento.km = atendimentoViewModel.km;
+            originalAtendimento.noturno = atendimentoViewModel.noturno;
+            originalAtendimento.qtd_hora_parada = atendimentoViewModel.qtd_hora_parada;
+            originalAtendimento.hospedagem = atendimentoViewModel.hospedagem;
+            originalAtendimento.qtd_pedagio = atendimentoViewModel.qtd_pedagio;
+            originalAtendimento.pedagio = atendimentoViewModel.pedagio;
             originalAtendimento.valor_total = atendimentoViewModel.valor_total;
             originalAtendimento.viaturaId = atendimentoViewModel.viaturaId;
             originalAtendimento.usuarioId = atendimentoViewModel.usuarioId;

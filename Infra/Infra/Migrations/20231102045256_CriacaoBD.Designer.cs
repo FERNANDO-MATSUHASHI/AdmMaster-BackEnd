@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20231102023423_CriacaoBD")]
+    [Migration("20231102045256_CriacaoBD")]
     partial class CriacaoBD
     {
         /// <inheritdoc />
@@ -33,6 +33,9 @@ namespace Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("Tipo_ServicoId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("data")
                         .HasColumnType("datetime2");
 
@@ -51,8 +54,10 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("qti")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("tipoServicoId")
+                        .HasColumnType("int");
 
                     b.Property<int>("usuarioId")
                         .HasColumnType("int");
@@ -64,6 +69,8 @@ namespace Infra.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Tipo_ServicoId");
 
                     b.HasIndex("usuarioId");
 
@@ -341,6 +348,10 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Domain.Entites.Atendimento", b =>
                 {
+                    b.HasOne("Domain.Entites.Tipo_Servico", "Tipo_Servico")
+                        .WithMany()
+                        .HasForeignKey("Tipo_ServicoId");
+
                     b.HasOne("Domain.Entites.Usuario", "Usuario")
                         .WithMany("Atendimentos")
                         .HasForeignKey("usuarioId")
@@ -352,6 +363,8 @@ namespace Infra.Migrations
                         .HasForeignKey("viaturaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Tipo_Servico");
 
                     b.Navigation("Usuario");
 
