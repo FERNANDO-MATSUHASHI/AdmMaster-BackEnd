@@ -28,9 +28,7 @@ namespace Domain.Service.Services
         {
             var tipoVeiculo = new Tipo_Veiculo
             {
-                marca = tipoVeiculoViewModel.marca,
                 modelo = tipoVeiculoViewModel.modelo,
-                placa = tipoVeiculoViewModel.placa,
                 descricao = tipoVeiculoViewModel.descricao,
             };
 
@@ -43,9 +41,7 @@ namespace Domain.Service.Services
             if (originalTipoVeiculo == null)
                 throw new Exception("TipoVeiculo nao existe.");
 
-            originalTipoVeiculo.marca = tipoVeiculoViewModel.marca;
             originalTipoVeiculo.modelo = tipoVeiculoViewModel.modelo;
-            originalTipoVeiculo.placa = tipoVeiculoViewModel.placa;
             originalTipoVeiculo.descricao = tipoVeiculoViewModel.descricao;
 
             _tipoVeiculoRepository.UpdateTipoVeiculo(originalTipoVeiculo);

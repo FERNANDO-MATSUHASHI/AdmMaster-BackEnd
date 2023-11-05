@@ -44,9 +44,7 @@ namespace Infra.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    marca = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     modelo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    placa = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     descricao = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -60,6 +58,9 @@ namespace Infra.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    marca = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    modelo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    placa = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     descricao = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -95,15 +96,46 @@ namespace Infra.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     valor_saida = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     valor_km = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    adicional_noturno = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    hora_parada = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Tipo_ServicoId = table.Column<int>(type: "int", nullable: false),
                     Tipo_VeiculoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Veiculo", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Veiculo_Tipo_Servico_Tipo_ServicoId",
+                        column: x => x.Tipo_ServicoId,
+                        principalTable: "Tipo_Servico",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Veiculo_Tipo_Veiculo_Tipo_VeiculoId",
                         column: x => x.Tipo_VeiculoId,
                         principalTable: "Tipo_Veiculo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Viatura",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    sigla = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    obs_vtr = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Tipo_ViaturaId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Viatura", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Viatura_Tipo_Viatura_Tipo_ViaturaId",
+                        column: x => x.Tipo_ViaturaId,
+                        principalTable: "Tipo_Viatura",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -143,41 +175,6 @@ namespace Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Viatura",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    sigla = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    obs_vtr = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tipo_ServicoId = table.Column<int>(type: "int", nullable: false),
-                    Tipo_ViaturaId = table.Column<int>(type: "int", nullable: false),
-                    VeiculoId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Viatura", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Viatura_Tipo_Servico_Tipo_ServicoId",
-                        column: x => x.Tipo_ServicoId,
-                        principalTable: "Tipo_Servico",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Viatura_Tipo_Viatura_Tipo_ViaturaId",
-                        column: x => x.Tipo_ViaturaId,
-                        principalTable: "Tipo_Viatura",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Viatura_Veiculo_VeiculoId",
-                        column: x => x.VeiculoId,
-                        principalTable: "Veiculo",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Atendimento",
                 columns: table => new
                 {
@@ -187,11 +184,19 @@ namespace Infra.Migrations
                     qru = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     qth = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     qti = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    km = table.Column<int>(type: "int", nullable: false),
-                    noturno = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    km = table.Column<int>(type: "int", nullable: true),
+                    noturno = table.Column<bool>(type: "bit", nullable: true),
+                    qtd_hora_parada = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    obs_hora_parada = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    hospedagem = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    qtd_pedagio = table.Column<int>(type: "int", nullable: true),
+                    pedagio = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     valor_total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    em_analise = table.Column<bool>(type: "bit", nullable: true),
                     viaturaId = table.Column<int>(type: "int", nullable: false),
                     usuarioId = table.Column<int>(type: "int", nullable: false),
+                    tipoVeiculoId = table.Column<int>(type: "int", nullable: false),
+                    Tipo_VeiculoId = table.Column<int>(type: "int", nullable: true),
                     tipoServicoId = table.Column<int>(type: "int", nullable: false),
                     Tipo_ServicoId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -202,6 +207,11 @@ namespace Infra.Migrations
                         name: "FK_Atendimento_Tipo_Servico_Tipo_ServicoId",
                         column: x => x.Tipo_ServicoId,
                         principalTable: "Tipo_Servico",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Atendimento_Tipo_Veiculo_Tipo_VeiculoId",
+                        column: x => x.Tipo_VeiculoId,
+                        principalTable: "Tipo_Veiculo",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Atendimento_Usuario_usuarioId",
@@ -246,6 +256,11 @@ namespace Infra.Migrations
                 column: "Tipo_ServicoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Atendimento_Tipo_VeiculoId",
+                table: "Atendimento",
+                column: "Tipo_VeiculoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Atendimento_usuarioId",
                 table: "Atendimento",
                 column: "usuarioId");
@@ -271,24 +286,19 @@ namespace Infra.Migrations
                 column: "cargoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Veiculo_Tipo_ServicoId",
+                table: "Veiculo",
+                column: "Tipo_ServicoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Veiculo_Tipo_VeiculoId",
                 table: "Veiculo",
                 column: "Tipo_VeiculoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Viatura_Tipo_ServicoId",
-                table: "Viatura",
-                column: "Tipo_ServicoId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Viatura_Tipo_ViaturaId",
                 table: "Viatura",
                 column: "Tipo_ViaturaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Viatura_VeiculoId",
-                table: "Viatura",
-                column: "VeiculoId");
         }
 
         /// <inheritdoc />
@@ -298,7 +308,16 @@ namespace Infra.Migrations
                 name: "Despesas_Atendimento");
 
             migrationBuilder.DropTable(
+                name: "Veiculo");
+
+            migrationBuilder.DropTable(
                 name: "Atendimento");
+
+            migrationBuilder.DropTable(
+                name: "Tipo_Servico");
+
+            migrationBuilder.DropTable(
+                name: "Tipo_Veiculo");
 
             migrationBuilder.DropTable(
                 name: "Usuario");
@@ -310,19 +329,10 @@ namespace Infra.Migrations
                 name: "Cargo");
 
             migrationBuilder.DropTable(
-                name: "Tipo_Servico");
-
-            migrationBuilder.DropTable(
                 name: "Tipo_Viatura");
 
             migrationBuilder.DropTable(
-                name: "Veiculo");
-
-            migrationBuilder.DropTable(
                 name: "Nivel");
-
-            migrationBuilder.DropTable(
-                name: "Tipo_Veiculo");
         }
     }
 }

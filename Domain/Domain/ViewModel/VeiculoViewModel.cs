@@ -12,6 +12,8 @@ namespace Domain.ViewModel
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal hora_parada { get; set; }
+        public string descricao { get; set; }
         public int Tipo_VeiculoId { get; set; }
+        public int Tipo_ServicoId { get; set; }
     }
 }

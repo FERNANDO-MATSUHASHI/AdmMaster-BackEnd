@@ -32,6 +32,8 @@ namespace Domain.Service.Services
                 valor_km = veiculoViewModel.valor_km,
                 adicional_noturno = veiculoViewModel.adicional_noturno,
                 hora_parada = veiculoViewModel.hora_parada,
+                descricao = veiculoViewModel.descricao,
+                Tipo_ServicoId = veiculoViewModel.Tipo_ServicoId,
                 Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId
             };
 
@@ -48,6 +50,8 @@ namespace Domain.Service.Services
             originalVeiculo.valor_km = veiculoViewModel.valor_km;
             originalVeiculo.adicional_noturno = veiculoViewModel.adicional_noturno;
             originalVeiculo.hora_parada = veiculoViewModel.hora_parada;
+            originalVeiculo.descricao = veiculoViewModel.descricao;
+            originalVeiculo.Tipo_ServicoId = veiculoViewModel.Tipo_ServicoId;
             originalVeiculo.Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId;
 
             _veiculoRepository.UpdateVeiculo(originalVeiculo);

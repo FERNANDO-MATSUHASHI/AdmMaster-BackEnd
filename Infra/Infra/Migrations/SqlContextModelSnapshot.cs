@@ -33,18 +33,39 @@ namespace Infra.Migrations
                     b.Property<int?>("Tipo_ServicoId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("Tipo_VeiculoId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("data")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("km")
+                    b.Property<bool?>("em_analise")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("hospedagem")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("km")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("noturno")
+                    b.Property<bool?>("noturno")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("obs_hora_parada")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("pedagio")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("qru")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("qtd_hora_parada")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("qtd_pedagio")
+                        .HasColumnType("int");
 
                     b.Property<string>("qth")
                         .IsRequired()
@@ -54,6 +75,9 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("tipoServicoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("tipoVeiculoId")
                         .HasColumnType("int");
 
                     b.Property<int>("usuarioId")
@@ -68,6 +92,8 @@ namespace Infra.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Tipo_ServicoId");
+
+                    b.HasIndex("Tipo_VeiculoId");
 
                     b.HasIndex("usuarioId");
 
@@ -179,15 +205,7 @@ namespace Infra.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("marca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("modelo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("placa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -205,6 +223,18 @@ namespace Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("marca")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("modelo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("placa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -291,8 +321,21 @@ namespace Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("Tipo_ServicoId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Tipo_VeiculoId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("adicional_noturno")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("hora_parada")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("valor_km")
                         .HasColumnType("decimal(18,2)");
@@ -301,6 +344,8 @@ namespace Infra.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Tipo_ServicoId");
 
                     b.HasIndex("Tipo_VeiculoId");
 
@@ -315,13 +360,7 @@ namespace Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Tipo_ServicoId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Tipo_ViaturaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VeiculoId")
                         .HasColumnType("int");
 
                     b.Property<string>("obs_vtr")
@@ -334,11 +373,7 @@ namespace Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Tipo_ServicoId");
-
                     b.HasIndex("Tipo_ViaturaId");
-
-                    b.HasIndex("VeiculoId");
 
                     b.ToTable("Viatura", (string)null);
                 });
@@ -346,8 +381,12 @@ namespace Infra.Migrations
             modelBuilder.Entity("Domain.Entites.Atendimento", b =>
                 {
                     b.HasOne("Domain.Entites.Tipo_Servico", "Tipo_Servico")
-                        .WithMany()
+                        .WithMany("Atendimentos")
                         .HasForeignKey("Tipo_ServicoId");
+
+                    b.HasOne("Domain.Entites.Tipo_Veiculo", "Tipo_Veiculo")
+                        .WithMany()
+                        .HasForeignKey("Tipo_VeiculoId");
 
                     b.HasOne("Domain.Entites.Usuario", "Usuario")
                         .WithMany("Atendimentos")
@@ -362,6 +401,8 @@ namespace Infra.Migrations
                         .IsRequired();
 
                     b.Navigation("Tipo_Servico");
+
+                    b.Navigation("Tipo_Veiculo");
 
                     b.Navigation("Usuario");
 
@@ -403,40 +444,32 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Domain.Entites.Veiculo", b =>
                 {
+                    b.HasOne("Domain.Entites.Tipo_Servico", "Tipo_Servico")
+                        .WithMany("Veiculos")
+                        .HasForeignKey("Tipo_ServicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Entites.Tipo_Veiculo", "Tipo_Veiculo")
                         .WithMany("Veiculos")
                         .HasForeignKey("Tipo_VeiculoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Tipo_Servico");
+
                     b.Navigation("Tipo_Veiculo");
                 });
 
             modelBuilder.Entity("Domain.Entites.Viatura", b =>
                 {
-                    b.HasOne("Domain.Entites.Tipo_Servico", "Tipo_Servico")
-                        .WithMany("Viaturas")
-                        .HasForeignKey("Tipo_ServicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Entites.Tipo_Viatura", "Tipo_Viatura")
                         .WithMany("Viaturas")
                         .HasForeignKey("Tipo_ViaturaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entites.Veiculo", "Veiculo")
-                        .WithMany("Viaturas")
-                        .HasForeignKey("VeiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Tipo_Servico");
-
                     b.Navigation("Tipo_Viatura");
-
-                    b.Navigation("Veiculo");
                 });
 
             modelBuilder.Entity("Domain.Entites.Cargo", b =>
@@ -451,7 +484,9 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Domain.Entites.Tipo_Servico", b =>
                 {
-                    b.Navigation("Viaturas");
+                    b.Navigation("Atendimentos");
+
+                    b.Navigation("Veiculos");
                 });
 
             modelBuilder.Entity("Domain.Entites.Tipo_Veiculo", b =>
@@ -467,11 +502,6 @@ namespace Infra.Migrations
             modelBuilder.Entity("Domain.Entites.Usuario", b =>
                 {
                     b.Navigation("Atendimentos");
-                });
-
-            modelBuilder.Entity("Domain.Entites.Veiculo", b =>
-                {
-                    b.Navigation("Viaturas");
                 });
 
             modelBuilder.Entity("Domain.Entites.Viatura", b =>

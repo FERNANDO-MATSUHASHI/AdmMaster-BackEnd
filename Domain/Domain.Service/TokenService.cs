@@ -18,7 +18,7 @@ namespace Domain.Service
                 {
                     new Claim(ClaimTypes.Name, user.user_name.ToString()),
                 }),
-                Expires = DateTime.UtcNow.AddHours(0.02),
+                Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(chave), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = manipuladorToken.CreateToken(descritorToken);

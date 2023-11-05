@@ -30,18 +30,21 @@ namespace Domain.Service.Services
             {
                 data = AtendimentoViewModel.data,
                 qru = AtendimentoViewModel.qru,
-                tipoServicoId = AtendimentoViewModel.tipoServicoId,
                 qth = AtendimentoViewModel.qth,
                 qti = AtendimentoViewModel.qti,
                 km = AtendimentoViewModel.km,
                 noturno = AtendimentoViewModel.noturno,
                 qtd_hora_parada = AtendimentoViewModel.qtd_hora_parada,
+                obs_hora_parada = AtendimentoViewModel.obs_hora_parada,
                 hospedagem = AtendimentoViewModel.hospedagem,
                 qtd_pedagio = AtendimentoViewModel.qtd_pedagio,
                 pedagio = AtendimentoViewModel.pedagio,
                 valor_total = AtendimentoViewModel.valor_total,
+                em_analise = AtendimentoViewModel.em_analise,
                 viaturaId = AtendimentoViewModel.viaturaId,
-                usuarioId = AtendimentoViewModel.usuarioId
+                usuarioId = AtendimentoViewModel.usuarioId,
+                tipoVeiculoId = AtendimentoViewModel.tipoVeiculoId,
+                tipoServicoId = AtendimentoViewModel.tipoServicoId
             };
 
             _atendimentoRepository.InsertAtendimento(atendimento);
@@ -60,12 +63,16 @@ namespace Domain.Service.Services
             originalAtendimento.km = atendimentoViewModel.km;
             originalAtendimento.noturno = atendimentoViewModel.noturno;
             originalAtendimento.qtd_hora_parada = atendimentoViewModel.qtd_hora_parada;
+            originalAtendimento.obs_hora_parada = atendimentoViewModel.obs_hora_parada;
             originalAtendimento.hospedagem = atendimentoViewModel.hospedagem;
             originalAtendimento.qtd_pedagio = atendimentoViewModel.qtd_pedagio;
             originalAtendimento.pedagio = atendimentoViewModel.pedagio;
             originalAtendimento.valor_total = atendimentoViewModel.valor_total;
+            originalAtendimento.em_analise = atendimentoViewModel.em_analise;
             originalAtendimento.viaturaId = atendimentoViewModel.viaturaId;
             originalAtendimento.usuarioId = atendimentoViewModel.usuarioId;
+            originalAtendimento.tipoVeiculoId = atendimentoViewModel.tipoVeiculoId;
+            originalAtendimento.tipoServicoId = atendimentoViewModel.tipoServicoId;
 
             _atendimentoRepository.UpdateAtendimento(originalAtendimento);
         }
