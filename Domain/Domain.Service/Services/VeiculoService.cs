@@ -34,7 +34,8 @@ namespace Domain.Service.Services
                 hora_parada = veiculoViewModel.hora_parada,
                 descricao = veiculoViewModel.descricao,
                 Tipo_ServicoId = veiculoViewModel.Tipo_ServicoId,
-                Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId
+                Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId,
+                viaturaId = veiculoViewModel.viaturaId
             };
 
             _veiculoRepository.InsertVeiculo(veiculo);
@@ -53,6 +54,7 @@ namespace Domain.Service.Services
             originalVeiculo.descricao = veiculoViewModel.descricao;
             originalVeiculo.Tipo_ServicoId = veiculoViewModel.Tipo_ServicoId;
             originalVeiculo.Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId;
+            originalVeiculo.viaturaId = veiculoViewModel.viaturaId;
 
             _veiculoRepository.UpdateVeiculo(originalVeiculo);
         }

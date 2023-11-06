@@ -10,5 +10,7 @@
         public Tipo_Viatura? Tipo_Viatura { get; set; }
         
         public List<Atendimento>? Atendimentos { get; set; }
+
+        public List<Veiculo>? Veiculos { get; set; }
     }
 }

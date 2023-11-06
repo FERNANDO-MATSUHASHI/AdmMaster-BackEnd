@@ -343,11 +343,16 @@ namespace Infra.Migrations
                     b.Property<decimal>("valor_saida")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("viaturaId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Tipo_ServicoId");
 
                     b.HasIndex("Tipo_VeiculoId");
+
+                    b.HasIndex("viaturaId");
 
                     b.ToTable("Veiculo", (string)null);
                 });
@@ -456,9 +461,17 @@ namespace Infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entites.Viatura", "Viaturas")
+                        .WithMany("Veiculos")
+                        .HasForeignKey("viaturaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Tipo_Servico");
 
                     b.Navigation("Tipo_Veiculo");
+
+                    b.Navigation("Viaturas");
                 });
 
             modelBuilder.Entity("Domain.Entites.Viatura", b =>
@@ -507,6 +520,8 @@ namespace Infra.Migrations
             modelBuilder.Entity("Domain.Entites.Viatura", b =>
                 {
                     b.Navigation("Atendimentos");
+
+                    b.Navigation("Veiculos");
                 });
 #pragma warning restore 612, 618
         }

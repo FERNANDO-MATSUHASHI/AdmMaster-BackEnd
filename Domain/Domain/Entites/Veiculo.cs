@@ -22,6 +22,7 @@ namespace Domain.Entites
         public Tipo_Servico? Tipo_Servico { get; set; }
         public int Tipo_VeiculoId { get; set; }
         public Tipo_Veiculo? Tipo_Veiculo { get; set; }
-
+        public int viaturaId { get; set; }
+        public Viatura? Viaturas { get; set; }
     }
 }

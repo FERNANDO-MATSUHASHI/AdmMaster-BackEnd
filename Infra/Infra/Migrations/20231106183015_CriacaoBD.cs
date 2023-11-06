@@ -89,37 +89,6 @@ namespace Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Veiculo",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    valor_saida = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    valor_km = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    adicional_noturno = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    hora_parada = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tipo_ServicoId = table.Column<int>(type: "int", nullable: false),
-                    Tipo_VeiculoId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Veiculo", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Veiculo_Tipo_Servico_Tipo_ServicoId",
-                        column: x => x.Tipo_ServicoId,
-                        principalTable: "Tipo_Servico",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Veiculo_Tipo_Veiculo_Tipo_VeiculoId",
-                        column: x => x.Tipo_VeiculoId,
-                        principalTable: "Tipo_Veiculo",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Viatura",
                 columns: table => new
                 {
@@ -170,6 +139,44 @@ namespace Infra.Migrations
                         name: "FK_Usuario_Cargo_cargoId",
                         column: x => x.cargoId,
                         principalTable: "Cargo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Veiculo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    valor_saida = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    valor_km = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    adicional_noturno = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    hora_parada = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Tipo_ServicoId = table.Column<int>(type: "int", nullable: false),
+                    Tipo_VeiculoId = table.Column<int>(type: "int", nullable: false),
+                    viaturaId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Veiculo", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Veiculo_Tipo_Servico_Tipo_ServicoId",
+                        column: x => x.Tipo_ServicoId,
+                        principalTable: "Tipo_Servico",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Veiculo_Tipo_Veiculo_Tipo_VeiculoId",
+                        column: x => x.Tipo_VeiculoId,
+                        principalTable: "Tipo_Veiculo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Veiculo_Viatura_viaturaId",
+                        column: x => x.viaturaId,
+                        principalTable: "Viatura",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -294,6 +301,11 @@ namespace Infra.Migrations
                 name: "IX_Veiculo_Tipo_VeiculoId",
                 table: "Veiculo",
                 column: "Tipo_VeiculoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Veiculo_viaturaId",
+                table: "Veiculo",
+                column: "viaturaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Viatura_Tipo_ViaturaId",
