@@ -30,6 +30,9 @@ namespace Domain.Service.Services
             {
                 data = AtendimentoViewModel.data,
                 qru = AtendimentoViewModel.qru,
+                ris = AtendimentoViewModel.ris,
+                patins = AtendimentoViewModel.patins,
+                rodaExtra = AtendimentoViewModel.rodaExtra,
                 qth = AtendimentoViewModel.qth,
                 qti = AtendimentoViewModel.qti,
                 km = AtendimentoViewModel.km,
@@ -39,6 +42,8 @@ namespace Domain.Service.Services
                 hospedagem = AtendimentoViewModel.hospedagem,
                 qtd_pedagio = AtendimentoViewModel.qtd_pedagio,
                 pedagio = AtendimentoViewModel.pedagio,
+                adicionais = AtendimentoViewModel.adicionais,
+                obs_adicionais = AtendimentoViewModel.obs_adicionais,
                 valor_total = AtendimentoViewModel.valor_total,
                 em_analise = AtendimentoViewModel.em_analise,
                 viaturaId = AtendimentoViewModel.viaturaId,
@@ -58,6 +63,9 @@ namespace Domain.Service.Services
 
             originalAtendimento.data = atendimentoViewModel.data;
             originalAtendimento.qru = atendimentoViewModel.qru;
+            originalAtendimento.ris = atendimentoViewModel.ris;
+            originalAtendimento.patins = atendimentoViewModel.patins;
+            originalAtendimento.rodaExtra = atendimentoViewModel.rodaExtra;
             originalAtendimento.qth = atendimentoViewModel.qth;
             originalAtendimento.qti = atendimentoViewModel.qti;
             originalAtendimento.km = atendimentoViewModel.km;
@@ -67,6 +75,8 @@ namespace Domain.Service.Services
             originalAtendimento.hospedagem = atendimentoViewModel.hospedagem;
             originalAtendimento.qtd_pedagio = atendimentoViewModel.qtd_pedagio;
             originalAtendimento.pedagio = atendimentoViewModel.pedagio;
+            originalAtendimento.adicionais = atendimentoViewModel.adicionais;
+            originalAtendimento.obs_adicionais = atendimentoViewModel.obs_adicionais;
             originalAtendimento.valor_total = atendimentoViewModel.valor_total;
             originalAtendimento.em_analise = atendimentoViewModel.em_analise;
             originalAtendimento.viaturaId = atendimentoViewModel.viaturaId;

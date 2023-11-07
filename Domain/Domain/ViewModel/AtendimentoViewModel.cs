@@ -7,6 +7,9 @@ namespace Domain.ViewModel
     {
         public DateTime data { get; set; }
         public string qru { get; set; }
+        public bool? ris { get; set; }
+        public bool? patins { get; set; }
+        public bool? rodaExtra { get; set; }
         public string qth { get; set; }
         public string? qti { get; set; }
         public int? km { get; set; }
@@ -22,6 +25,10 @@ namespace Domain.ViewModel
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal? pedagio { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal adicionais { get; set; }
+        public string obs_adicionais { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal valor_total { get; set; }

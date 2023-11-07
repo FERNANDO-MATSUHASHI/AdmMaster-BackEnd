@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20231107005416_CriacaoBD")]
+    [Migration("20231107144627_CriacaoBD")]
     partial class CriacaoBD
     {
         /// <inheritdoc />
@@ -39,6 +39,9 @@ namespace Infra.Migrations
                     b.Property<int?>("Tipo_VeiculoId")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("adicionais")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<DateTime>("data")
                         .HasColumnType("datetime2");
 
@@ -54,8 +57,15 @@ namespace Infra.Migrations
                     b.Property<bool?>("noturno")
                         .HasColumnType("bit");
 
+                    b.Property<string>("obs_adicionais")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("obs_hora_parada")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("patins")
+                        .HasColumnType("bit");
 
                     b.Property<decimal?>("pedagio")
                         .HasColumnType("decimal(18,2)");
@@ -76,6 +86,12 @@ namespace Infra.Migrations
 
                     b.Property<string>("qti")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("ris")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("rodaExtra")
+                        .HasColumnType("bit");
 
                     b.Property<int>("tipoServicoId")
                         .HasColumnType("int");
@@ -335,6 +351,15 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("hora_parada")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("patins")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ris")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("rodaExtra")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("valor_km")

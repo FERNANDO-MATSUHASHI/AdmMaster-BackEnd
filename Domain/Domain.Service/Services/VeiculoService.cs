@@ -31,6 +31,9 @@ namespace Domain.Service.Services
                 valor_saida = veiculoViewModel.valor_saida,
                 valor_km = veiculoViewModel.valor_km,
                 adicional_noturno = veiculoViewModel.adicional_noturno,
+                ris = veiculoViewModel.ris,
+                patins = veiculoViewModel.patins,
+                rodaExtra = veiculoViewModel.rodaExtra,
                 hora_parada = veiculoViewModel.hora_parada,
                 descricao = veiculoViewModel.descricao,
                 Tipo_ServicoId = veiculoViewModel.Tipo_ServicoId,
@@ -50,6 +53,9 @@ namespace Domain.Service.Services
             originalVeiculo.valor_saida = veiculoViewModel.valor_saida;
             originalVeiculo.valor_km = veiculoViewModel.valor_km;
             originalVeiculo.adicional_noturno = veiculoViewModel.adicional_noturno;
+            originalVeiculo.ris = veiculoViewModel.ris;
+            originalVeiculo.patins = veiculoViewModel.patins;
+            originalVeiculo.rodaExtra = veiculoViewModel.rodaExtra;
             originalVeiculo.hora_parada = veiculoViewModel.hora_parada;
             originalVeiculo.descricao = veiculoViewModel.descricao;
             originalVeiculo.Tipo_ServicoId = veiculoViewModel.Tipo_ServicoId;
