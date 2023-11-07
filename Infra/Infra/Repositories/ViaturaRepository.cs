@@ -1,5 +1,6 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -14,12 +15,26 @@ namespace Infra.Repositories
 
         public List<Viatura> GetViaturas()
         {
-            return _context.Viaturas.ToList();
+            //return _context.Viaturas.ToList();
+            return (from viatura in _context.Viaturas
+                    join tipoViatura in _context.Tipo_Viaturas on viatura.Tipo_ViaturaId equals tipoViatura.Id
+                    select new Viatura
+                    {
+                        sigla = viatura.sigla,
+                        obs_vtr = viatura.obs_vtr,
+                        Tipo_Viatura = new Tipo_Viatura
+                        {
+                            marca = tipoViatura.marca,
+                            modelo = tipoViatura.modelo,
+                            placa = tipoViatura.placa,
+                            descricao = tipoViatura.descricao
+                        }
+                    }).ToList();
         }
 
         public Viatura GetViaturaById(int id)
         {
-            return _context.Viaturas.Find(id);
+            return _context.Viaturas.Include(x => x.Tipo_Viatura).FirstOrDefault(x => x.Id == id);
         }
 
         public void InsertViatura(Viatura viatura)

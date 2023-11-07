@@ -10,9 +10,10 @@ namespace Domain.Service.Services
         private readonly IDespesasAtendimentoRepository _despesasRepository;
         private readonly IAtendimentoRepository _atendimentoRepository;
 
-        public DespesasAtendimentoService(IDespesasAtendimentoRepository despesasRepository)
+        public DespesasAtendimentoService(IDespesasAtendimentoRepository despesasRepository, IAtendimentoRepository atendimentoRepository)
         {
             _despesasRepository = despesasRepository;
+            _atendimentoRepository = atendimentoRepository;
         }
 
         public List<Despesas_Atendimento> GetDespesas()
@@ -48,6 +49,8 @@ namespace Domain.Service.Services
                 throw new Exception("Atendimento não existe.");
 
             despesa.AtendimentoId = despesaViewModel.AtendimentoId;
+            despesa.tipo = despesaViewModel.tipo;
+            despesa.descricao = despesaViewModel.descricao;
             despesa.valor = despesaViewModel.valor;
 
             _despesasRepository.UpdateDespesa(despesa);

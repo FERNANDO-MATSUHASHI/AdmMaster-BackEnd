@@ -1,5 +1,6 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -14,7 +15,10 @@ namespace Infra.Repositories
 
         public List<Despesas_Atendimento> GetDespesas()
         {
-            return _context.DespesasAtendimento.ToList();
+            return _context.DespesasAtendimento.Include(a => a.Atendimento)
+                   .Include(u => u.Atendimento.Usuario)
+                   .Include(v => v.Atendimento.Viatura)
+                   .ToList();
         }
 
         public Despesas_Atendimento GetDespesaById(int id)

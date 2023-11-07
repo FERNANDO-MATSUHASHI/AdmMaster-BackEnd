@@ -1,4 +1,5 @@
 ﻿using Domain.Entites;
+using Domain.ViewModel;
 
 namespace Infra.Interfaces
 {
