@@ -30,6 +30,8 @@ namespace Domain.Service.Services
             var despesa = new Despesas_Atendimento
             {
                 AtendimentoId = DespesaViewModel.AtendimentoId,
+                tipo = DespesaViewModel.tipo,
+                descricao = DespesaViewModel.descricao,
                 valor = DespesaViewModel.valor
             };
 

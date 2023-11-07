@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20231106183015_CriacaoBD")]
+    [Migration("20231107005416_CriacaoBD")]
     partial class CriacaoBD
     {
         /// <inheritdoc />
@@ -137,9 +137,6 @@ namespace Infra.Migrations
 
                     b.Property<int>("AtendimentoId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("data")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("descricao")
                         .IsRequired()

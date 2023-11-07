@@ -241,9 +241,8 @@ namespace Infra.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AtendimentoId = table.Column<int>(type: "int", nullable: false),
-                    descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tipo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    data = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     valor = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
