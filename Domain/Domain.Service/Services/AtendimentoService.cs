@@ -95,5 +95,12 @@ namespace Domain.Service.Services
 
             _atendimentoRepository.DeleteAtendimento(originalAtendimento);
         }
+
+        public List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal)
+        {
+            var atendimentos = _atendimentoRepository.GetAtendimentoByBetweenDate(dataInicial, dataFinal);
+
+            return atendimentos;
+        }
     }
 }

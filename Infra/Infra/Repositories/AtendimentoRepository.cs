@@ -34,5 +34,9 @@ namespace Infra.Repositories
             _context.Atendimentos.Remove(atendimento);
             _context.SaveChanges();
         }
+        public List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal)
+        {
+            return _context.Atendimentos.Where(x => x.data > dataInicial && x.data < dataFinal).ToList();
+        }
     }
 }

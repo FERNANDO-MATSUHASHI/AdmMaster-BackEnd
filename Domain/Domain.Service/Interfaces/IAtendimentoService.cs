@@ -10,5 +10,6 @@ namespace Domain.Service.Interfaces
         void InsertAtendimento(AtendimentoViewModel atendimentoViewModel);
         void UpdateAtendimento(int id, AtendimentoViewModel atendimentoViewModel);
         void DeleteAtendimento(int id);
+        List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal);
     }
 }
