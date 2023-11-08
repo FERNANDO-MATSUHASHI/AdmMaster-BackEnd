@@ -20,7 +20,7 @@ namespace Application.Service.Application
         public ComissaoReturnViewModel GetComissao(ComissaoViewModel comissaoViewModel)
         {
             var usuario = _usuarioService.GetUsuarioById(comissaoViewModel.usuarioId);
-            var atendimentos = _atendimentoService.GetAtendimentoByBetweenDate(comissaoViewModel.dataInicial, comissaoViewModel.dataFinal);
+            var atendimentos = _atendimentoService.GetAtendimentoByBetweenDate(comissaoViewModel.dataInicial, comissaoViewModel.dataFinal, comissaoViewModel.usuarioId);
 
             var comissao = _comissaoService.GetComissao(usuario, atendimentos);
 

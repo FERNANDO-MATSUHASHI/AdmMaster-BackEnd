@@ -96,9 +96,9 @@ namespace Domain.Service.Services
             _atendimentoRepository.DeleteAtendimento(originalAtendimento);
         }
 
-        public List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal)
+        public List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal, int usuarioId)
         {
-            var atendimentos = _atendimentoRepository.GetAtendimentoByBetweenDate(dataInicial, dataFinal);
+            var atendimentos = _atendimentoRepository.GetAtendimentoByBetweenDate(dataInicial, dataFinal, usuarioId);
 
             return atendimentos;
         }

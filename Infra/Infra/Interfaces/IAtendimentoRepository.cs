@@ -9,6 +9,6 @@ namespace Infra.Interfaces
         public void InsertAtendimento(Atendimento atendimento);
         public void UpdateAtendimento(Atendimento atendimento);
         public void DeleteAtendimento(Atendimento atendimento);
-        List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal);
+        List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal, int usuarioId);
     }
 }
