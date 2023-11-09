@@ -10,7 +10,9 @@ namespace Domain.Service.Services
         public ComissaoReturnViewModel GetComissao(Usuario usuario, List<Atendimento> atendimento)
         {
             var retorno = new ComissaoReturnViewModel();
+            retorno.ListaAuxiliar = new List<Aux>();
             decimal total = 0;
+            decimal totalComissao = 0;
 
             foreach (var item in atendimento) 
             {
@@ -19,14 +21,18 @@ namespace Domain.Service.Services
                 {
                     data = item.data,
                     usuarioNome = usuario.nome,
-                    atendimentoNome = "teste" ,
+                    atendimentoNome = item.qru,
                     valorAtendimento = item.valor_total,
-                    valorComissao = comissao
+                    valorComissao = comissao,
+                    comissaoPorcentagem = usuario.comissao
                 };
                 retorno.ListaAuxiliar.Add(teste);
                 total += item.valor_total;
+                totalComissao += comissao;
             }
             retorno.Total = total;
+            retorno.TotalComissao = totalComissao;
+            retorno.Porcentagem = usuario.comissao;
 
             return retorno;
         }

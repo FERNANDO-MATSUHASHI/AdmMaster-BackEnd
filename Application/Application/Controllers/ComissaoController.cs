@@ -1,9 +1,11 @@
 ﻿using Application.Service.Interface;
 using Domain.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class ComissaoController : ControllerBase
@@ -15,8 +17,8 @@ namespace Application.Controllers
             _comissaoApplication = comissaoApplication;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetComissao(ComissaoViewModel comissaoViewModel)
+        [HttpPost]
+        public IActionResult GetComissao([FromBody]ComissaoViewModel comissaoViewModel)
         {
             try
             {

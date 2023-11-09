@@ -76,6 +76,7 @@ builder.Services.AddScoped<IUsuarioApplication, UsuarioApplication>();
 builder.Services.AddScoped<IVeiculoApplication, VeiculoApplication>();
 builder.Services.AddScoped<IViaturaApplication, ViaturaApplication>();
 builder.Services.AddScoped<ICadastroAdminApplication, CadastroAdminApplication>();
+builder.Services.AddScoped<IComissaoApplication, ComissaoApplication>();
 
 
 //Dependency Injection Service
@@ -91,6 +92,7 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IVeiculoService, VeiculoService>();
 builder.Services.AddScoped<IViaturaService, ViaturaService>();
 builder.Services.AddScoped<ICadastroAdminService, CadastroAdminService>();
+builder.Services.AddScoped<IComissaoService, ComissaoService>();
 
 
 ////Dependency Injection SqlContext
