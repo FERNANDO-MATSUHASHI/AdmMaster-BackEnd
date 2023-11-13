@@ -56,5 +56,9 @@ namespace Application.Service.Application
         {
             return _usuarioService.Login(loginViewModel);
         }
+        public Usuario GetUsuarioByEmail(string email)
+        {
+            return _usuarioService.GetUsuarioByEmail(email);
+        }
     }
 }

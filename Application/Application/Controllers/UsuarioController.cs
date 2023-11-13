@@ -115,5 +115,20 @@ namespace Application.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [AllowAnonymous]
+        [HttpGet("Email")]
+        public IActionResult GetUsuarioByEmail(string email)
+        {
+            try
+            {
+                var usuario = _usuarioApplication.GetUsuarioByEmail(email);
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

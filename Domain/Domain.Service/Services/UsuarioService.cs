@@ -102,5 +102,9 @@ namespace Domain.Service.Services
 
             return token;
         }
+        public Usuario GetUsuarioByEmail(string email)
+        {
+            return _usuarioRepository.GetUsuarioByEmail(email);
+        }
     }
 }

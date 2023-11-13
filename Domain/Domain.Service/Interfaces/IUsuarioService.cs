@@ -12,6 +12,7 @@ namespace Domain.Service.Interfaces
         void DeleteUsuario(int id);
 
         string Login(LoginViewModel loginViewModel);
+        Usuario GetUsuarioByEmail(string email); 
         List<ColaboradoresViewModel> GetColaboradores(int gerenteId);
     }
 }
