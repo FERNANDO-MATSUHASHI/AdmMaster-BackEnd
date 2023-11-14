@@ -31,7 +31,7 @@ namespace Domain.Service.Services
                 totalComissao += comissao;
             }
             retorno.Total = total;
-            retorno.TotalComissao = totalComissao;
+            retorno.TotalComissao = Math.Round(totalComissao, 2);
             retorno.Porcentagem = usuario.comissao;
 
             return retorno;
