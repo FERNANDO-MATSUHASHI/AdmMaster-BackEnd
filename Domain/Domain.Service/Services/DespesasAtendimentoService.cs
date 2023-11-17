@@ -10,14 +10,25 @@ namespace Domain.Service.Services
         private readonly IDespesasAtendimentoRepository _despesasRepository;
         private readonly IAtendimentoRepository _atendimentoRepository;
 
-        public DespesasAtendimentoService(IDespesasAtendimentoRepository despesasRepository)
+        public DespesasAtendimentoService(IDespesasAtendimentoRepository despesasRepository, IAtendimentoRepository atendimentoRepository)
         {
             _despesasRepository = despesasRepository;
+            _atendimentoRepository = atendimentoRepository;
         }
 
         public List<Despesas_Atendimento> GetDespesas()
         {
             return _despesasRepository.GetDespesas();
+        }
+
+        public List<Despesas_Atendimento> GetDespesasByFilter(string? qru, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            return _despesasRepository.GetDespesasByFilter(qru, dataInicial, dataFinal);
+        }
+
+        public Viatura GetInfoViatura(int id)
+        {
+            return _despesasRepository.GetInfoViatura(id);
         }
 
         public Despesas_Atendimento GetDespesaById(int id)
@@ -48,6 +59,8 @@ namespace Domain.Service.Services
                 throw new Exception("Atendimento não existe.");
 
             despesa.AtendimentoId = despesaViewModel.AtendimentoId;
+            despesa.tipo = despesaViewModel.tipo;
+            despesa.descricao = despesaViewModel.descricao;
             despesa.valor = despesaViewModel.valor;
 
             _despesasRepository.UpdateDespesa(despesa);

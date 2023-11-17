@@ -29,6 +29,34 @@ namespace Application.Controllers
             }
         }
 
+        [HttpGet("GetDespesasByFilter")]
+        public IActionResult GetDespesasByFilter(string? qru, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            try
+            {
+                var despesas = _despesasApplication.GetDespesasByFilter(qru, dataInicial, dataFinal);
+                return Ok(despesas);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("Viatura/{id}")]
+        public IActionResult GetInfoViatura(int id)
+        {
+            try
+            {
+                var viatura = _despesasApplication.GetInfoViatura(id);
+                return Ok(viatura);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetDespesasById(int id)
         {

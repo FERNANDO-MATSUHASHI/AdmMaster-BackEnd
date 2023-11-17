@@ -19,6 +19,16 @@ namespace Application.Service.Application
             return _despesaService.GetDespesas();
         }
 
+        public List<Despesas_Atendimento> GetDespesasByFilter(string? qru, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            return _despesaService.GetDespesasByFilter(qru, dataInicial, dataFinal);
+        }
+
+        public Viatura GetInfoViatura(int id)
+        {
+            return _despesaService.GetInfoViatura(id);
+        }
+
         public Despesas_Atendimento GetDespesaById(int id)
         {
             return _despesaService.GetDespesaById(id);
