@@ -10,5 +10,6 @@ namespace Infra.Interfaces
         public void UpdateAtendimento(Atendimento atendimento);
         public void DeleteAtendimento(Atendimento atendimento);
         List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal, int usuarioId);
+        public List<Atendimento> GetAtendimentoGerenteById(int id);
     }
 }

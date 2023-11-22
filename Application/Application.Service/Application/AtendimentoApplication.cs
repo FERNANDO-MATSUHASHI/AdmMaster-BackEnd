@@ -38,5 +38,10 @@ namespace Application.Service.Application
         {
             _atendimentoService.DeleteAtendimento(id);
         }
+
+        public List<Atendimento> GetAtendimentoGerenteById(int gerenteId)
+        {
+            return _atendimentoService.GetAtendimentoGerenteById(gerenteId);
+        }
     }
 }

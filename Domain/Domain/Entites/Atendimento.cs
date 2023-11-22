@@ -39,6 +39,7 @@ namespace Domain.Entites
         public Viatura? Viatura { get; set; }
 
         public int usuarioId { get; set; }
+        public int gerenteId { get; set; }
         public Usuario? Usuario { get; set; }
 
         public int tipoVeiculoId { get; set; }
@@ -46,7 +47,5 @@ namespace Domain.Entites
 
         public int tipoServicoId { get; set; }
         public Tipo_Servico? Tipo_Servico { get; set; }
-
-
     }
 }

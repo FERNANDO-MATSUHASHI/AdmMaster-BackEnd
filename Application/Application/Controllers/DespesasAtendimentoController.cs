@@ -112,5 +112,19 @@ namespace Application.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("Gerente/{gerenteId}")]
+        public IActionResult GetDespesasGerenteById(int gerenteId)
+        {
+            try
+            {
+                var despesa = _despesasApplication.GetDespesaGerenteById(gerenteId);
+                return Ok(despesa);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

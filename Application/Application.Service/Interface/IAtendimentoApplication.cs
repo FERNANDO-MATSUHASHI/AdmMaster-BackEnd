@@ -10,5 +10,6 @@ namespace Application.Service.Interface
         void InsertAtendimento(AtendimentoViewModel atendimentoViewModel);
         void UpdateAtendimento(int id, AtendimentoViewModel atendimentoViewModel);
         void DeleteAtendimento(int id);
+        List<Atendimento> GetAtendimentoGerenteById(int gerenteId);
     }
 }

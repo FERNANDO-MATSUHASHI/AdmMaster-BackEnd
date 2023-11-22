@@ -50,8 +50,8 @@ namespace Infra.Repositories
                         join atendimento in _context.Atendimentos on despesa.AtendimentoId equals atendimento.Id
                         join usuario in _context.Usuarios on atendimento.usuarioId equals usuario.Id
                         where atendimento.qru == (qru ?? atendimento.qru) &&
-                            atendimento.data >= (dataInicial ?? atendimento.data) &&
-                            atendimento.data <= (dataFinal ?? atendimento.data)
+                            (dataInicial == null || atendimento.data.Date >= dataInicial) &&
+                            (dataFinal == null || atendimento.data.Date <= dataFinal)
                         select new Despesas_Atendimento()
                         {
                             Id = despesa.Id,
@@ -118,6 +118,37 @@ namespace Infra.Repositories
         {
             _context.DespesasAtendimento.Remove(despesa);
             _context.SaveChanges();
+        }
+        public List<Despesas_Atendimento> GetDespesaGerenteById(int gerenteId)
+        {
+            //return _context.DespesasAtendimento.Where(x => x.gerenteId == gerenteId).ToList();
+            var query = from despesa in _context.DespesasAtendimento
+                        join atendimento in _context.Atendimentos on despesa.AtendimentoId equals atendimento.Id
+                        join usuario in _context.Usuarios on atendimento.usuarioId equals usuario.Id
+                        where atendimento.gerenteId == gerenteId
+                        select new Despesas_Atendimento()
+                        {
+                            Id = despesa.Id,
+                            AtendimentoId = atendimento.Id,
+                            Atendimento = new Atendimento()
+                            {
+                                Id = atendimento.Id,
+                                qru = atendimento.qru,
+                                tipoServicoId = atendimento.tipoServicoId,
+                                data = atendimento.data,
+                                usuarioId = atendimento.usuarioId,
+                                Usuario = new Usuario()
+                                {
+                                    Id = usuario.Id,
+                                    nome = usuario.nome
+                                },
+                                viaturaId = atendimento.viaturaId,
+                            },
+                            tipo = despesa.tipo,
+                            descricao = despesa.descricao,
+                            valor = despesa.valor
+                        };
+            return query.ToList();
         }
     }
 }

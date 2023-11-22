@@ -11,5 +11,6 @@ namespace Infra.Interfaces
         public void InsertDespesa(Despesas_Atendimento despesa);
         public void UpdateDespesa(Despesas_Atendimento despesa);
         public void DeleteDespesa(Despesas_Atendimento despesa);
+        public List<Despesas_Atendimento> GetDespesaGerenteById(int gerenteId);
     }
 }

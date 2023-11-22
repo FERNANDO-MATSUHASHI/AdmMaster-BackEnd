@@ -11,6 +11,7 @@ namespace Domain.Entites
     {
         public int Id { get; set; }
         public int AtendimentoId { get; set; }        
+        public int gerenteId { get; set; }
         public Atendimento? Atendimento { get; set; }
         public string tipo { get; set; }
         public string descricao { get; set; }

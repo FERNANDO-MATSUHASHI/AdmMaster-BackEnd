@@ -6,6 +6,7 @@ namespace Domain.ViewModel
     public class Despesas_AtendimentoViewModel
     {
         public int AtendimentoId { get; set; }
+        public int gerenteId { get; set; }
         public string tipo { get; set; }
         public string descricao { get; set; }
 

@@ -54,10 +54,22 @@ namespace Infra.Repositories
              where i.gerenteId == gerenteId
              select new ColaboradoresViewModel
              {
+                 Id = i.Id,
                  nome = i.nome,
+                 cpf = i.cpf,
                  email = i.email,
-                 cargo = cargo.descricao,
+                 data_nascimento = i.data_nascimento,
+                 cep = i.cep,
+                 rua = i.rua,
+                 numero = i.numero,
+                 cidade = i.cidade,
                  estado = i.estado,
+                 user_name = i.user_name,
+                 senha = i.senha,
+                 ativo = i.ativo,
+                 comissao = i.comissao,
+                 gerenteId = i.gerenteId,
+                 cargoId = i.cargoId,
                  criado_em = i.criado_em.ToString("dd/MM/yyyy")
              }).ToList();
         }

@@ -41,6 +41,7 @@ namespace Domain.Service.Services
             var despesa = new Despesas_Atendimento
             {
                 AtendimentoId = DespesaViewModel.AtendimentoId,
+                gerenteId = DespesaViewModel.gerenteId,
                 tipo = DespesaViewModel.tipo,
                 descricao = DespesaViewModel.descricao,
                 valor = DespesaViewModel.valor
@@ -59,6 +60,7 @@ namespace Domain.Service.Services
                 throw new Exception("Atendimento não existe.");
 
             despesa.AtendimentoId = despesaViewModel.AtendimentoId;
+            despesa.gerenteId = despesaViewModel.gerenteId;
             despesa.tipo = despesaViewModel.tipo;
             despesa.descricao = despesaViewModel.descricao;
             despesa.valor = despesaViewModel.valor;
@@ -73,6 +75,10 @@ namespace Domain.Service.Services
                 throw new Exception("Despesa de Atendimento não existe.");
 
             _despesasRepository.DeleteDespesa(despesa);
+        }
+        public List<Despesas_Atendimento> GetDespesaGerenteById(int gerenteId)
+        {
+            return _despesasRepository.GetDespesaGerenteById(gerenteId);
         }
     }
 }

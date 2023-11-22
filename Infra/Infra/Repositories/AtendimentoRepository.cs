@@ -36,7 +36,11 @@ namespace Infra.Repositories
         }
         public List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal, int usuarioId)
         {
-            return _context.Atendimentos.Where(x => x.data >= dataInicial && x.data <= dataFinal && x.usuarioId == usuarioId).ToList();
+            return _context.Atendimentos.Where(x => x.usuarioId == usuarioId && x.data >= dataInicial && x.data <= dataFinal).ToList();
+        }
+        public List<Atendimento> GetAtendimentoGerenteById(int gerenteId)
+        {
+            return _context.Atendimentos.Where(x => x.gerenteId == gerenteId).ToList();
         }
     }
 }

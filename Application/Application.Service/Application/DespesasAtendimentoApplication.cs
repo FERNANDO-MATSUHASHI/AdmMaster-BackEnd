@@ -48,5 +48,9 @@ namespace Application.Service.Application
         {
             _despesaService.DeleteDespesa(id);
         }
+        public List<Despesas_Atendimento> GetDespesaGerenteById(int gerenteId)
+        {
+            return _despesaService.GetDespesaGerenteById(gerenteId);
+        }
     }
 }

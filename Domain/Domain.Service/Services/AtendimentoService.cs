@@ -48,6 +48,7 @@ namespace Domain.Service.Services
                 em_analise = AtendimentoViewModel.em_analise,
                 viaturaId = AtendimentoViewModel.viaturaId,
                 usuarioId = AtendimentoViewModel.usuarioId,
+                gerenteId = AtendimentoViewModel.gerenteId,
                 tipoVeiculoId = AtendimentoViewModel.tipoVeiculoId,
                 tipoServicoId = AtendimentoViewModel.tipoServicoId
             };
@@ -81,6 +82,7 @@ namespace Domain.Service.Services
             originalAtendimento.em_analise = atendimentoViewModel.em_analise;
             originalAtendimento.viaturaId = atendimentoViewModel.viaturaId;
             originalAtendimento.usuarioId = atendimentoViewModel.usuarioId;
+            originalAtendimento.gerenteId = atendimentoViewModel.gerenteId;
             originalAtendimento.tipoVeiculoId = atendimentoViewModel.tipoVeiculoId;
             originalAtendimento.tipoServicoId = atendimentoViewModel.tipoServicoId;
 
@@ -101,6 +103,10 @@ namespace Domain.Service.Services
             var atendimentos = _atendimentoRepository.GetAtendimentoByBetweenDate(dataInicial, dataFinal, usuarioId);
 
             return atendimentos;
+        }
+        public List<Atendimento> GetAtendimentoGerenteById(int gerenteId)
+        {
+            return _atendimentoRepository.GetAtendimentoGerenteById(gerenteId);
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Domain.ViewModel
         public bool? em_analise { get; set; }
         public int viaturaId { get; set; }
         public int usuarioId { get; set; }
+        public int gerenteId { get; set; }
         public int tipoVeiculoId { get; set; }
         public int tipoServicoId { get; set; }
     }

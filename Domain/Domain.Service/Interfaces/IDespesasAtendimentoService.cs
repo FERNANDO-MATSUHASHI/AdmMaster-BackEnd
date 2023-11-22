@@ -12,5 +12,6 @@ namespace Domain.Service.Interfaces
         void InsertDespesa(Despesas_AtendimentoViewModel despesaViewModel);
         void UpdateDespesa(int id, Despesas_AtendimentoViewModel despesaViewModel);
         void DeleteDespesa(int id);
+        List<Despesas_Atendimento> GetDespesaGerenteById(int gerenteId);
     }
 }

@@ -84,5 +84,19 @@ namespace Application.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("Gerente/{gerenteId}")]
+        public IActionResult GetAtendimentoGerenteById(int gerenteId)
+        {
+            try
+            {
+                var atendimento = _atendimentoApplication.GetAtendimentoGerenteById(gerenteId);
+                return Ok(atendimento);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
