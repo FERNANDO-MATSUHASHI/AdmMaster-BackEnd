@@ -57,6 +57,7 @@ namespace Infra.Repositories
                  Id = i.Id,
                  nome = i.nome,
                  cpf = i.cpf,
+                 telefone = i.telefone,
                  email = i.email,
                  data_nascimento = i.data_nascimento,
                  cep = i.cep,

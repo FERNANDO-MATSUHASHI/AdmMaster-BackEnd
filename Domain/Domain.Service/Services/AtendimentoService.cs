@@ -46,6 +46,8 @@ namespace Domain.Service.Services
                 obs_adicionais = AtendimentoViewModel.obs_adicionais,
                 valor_total = AtendimentoViewModel.valor_total,
                 em_analise = AtendimentoViewModel.em_analise,
+                cancelado = AtendimentoViewModel.cancelado,
+                ativo = AtendimentoViewModel. ativo,
                 viaturaId = AtendimentoViewModel.viaturaId,
                 usuarioId = AtendimentoViewModel.usuarioId,
                 gerenteId = AtendimentoViewModel.gerenteId,
@@ -80,6 +82,8 @@ namespace Domain.Service.Services
             originalAtendimento.obs_adicionais = atendimentoViewModel.obs_adicionais;
             originalAtendimento.valor_total = atendimentoViewModel.valor_total;
             originalAtendimento.em_analise = atendimentoViewModel.em_analise;
+            originalAtendimento.cancelado = atendimentoViewModel.cancelado;
+            originalAtendimento.ativo = atendimentoViewModel.ativo;
             originalAtendimento.viaturaId = atendimentoViewModel.viaturaId;
             originalAtendimento.usuarioId = atendimentoViewModel.usuarioId;
             originalAtendimento.gerenteId = atendimentoViewModel.gerenteId;

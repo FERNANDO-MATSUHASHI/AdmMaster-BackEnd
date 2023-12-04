@@ -61,6 +61,10 @@ builder.Services.AddScoped<ITipoViaturaRepository, TipoViaturaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
 builder.Services.AddScoped<IViaturaRepository, ViaturaRepository>();
+builder.Services.AddScoped<IFornecedorRepository, FornecedorRepository>();
+builder.Services.AddScoped<ITipoCombustivelRepository, TipoCombustivelRepository>();
+builder.Services.AddScoped<IManutencaoRepository, ManutencaoRepository>();
+builder.Services.AddScoped<IAbastecimentoRepository, AbastecimentoRepository>();
 
 
 //Dependency Injection Application
@@ -77,6 +81,10 @@ builder.Services.AddScoped<IVeiculoApplication, VeiculoApplication>();
 builder.Services.AddScoped<IViaturaApplication, ViaturaApplication>();
 builder.Services.AddScoped<ICadastroAdminApplication, CadastroAdminApplication>();
 builder.Services.AddScoped<IComissaoApplication, ComissaoApplication>();
+builder.Services.AddScoped<IFornecedorApplication, FornecedorApplication>();
+builder.Services.AddScoped<ITipoCombustivelApplication, TipoCombustivelApplication>();
+builder.Services.AddScoped<IManutencaoApplication, ManutencaoApplication>();
+builder.Services.AddScoped<IAbastecimentoApplication, AbastecimentoApplication>();
 
 
 //Dependency Injection Service
@@ -93,6 +101,10 @@ builder.Services.AddScoped<IVeiculoService, VeiculoService>();
 builder.Services.AddScoped<IViaturaService, ViaturaService>();
 builder.Services.AddScoped<ICadastroAdminService, CadastroAdminService>();
 builder.Services.AddScoped<IComissaoService, ComissaoService>();
+builder.Services.AddScoped<IFornecedorService, FornecedorService>();
+builder.Services.AddScoped<ITipoCombustivelService, TipoCombustivelService>();
+builder.Services.AddScoped<IManutencaoService, ManutencaoService>();
+builder.Services.AddScoped<IAbastecimentoService, AbastecimentoService>();
 
 
 ////Dependency Injection SqlContext

@@ -34,6 +34,9 @@ namespace Domain.Entites
         [Column(TypeName = "decimal(18,2)")]
         public decimal valor_total { get; set; }
         public bool? em_analise { get; set; }
+        public bool? cancelado { get; set; }
+        public bool? ativo { get; set; }
+
         
         public int viaturaId { get; set; }
         public Viatura? Viatura { get; set; }

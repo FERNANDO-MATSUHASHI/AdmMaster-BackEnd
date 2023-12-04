@@ -22,6 +22,51 @@ namespace Infra.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.Entites.Abastecimento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("data_abastecimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("fornecedorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("gerenteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("tipo_combustivelId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("valor_total_abastecimento")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("valor_unid_abastecimento")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("viaturaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.HasIndex("fornecedorId");
+
+                    b.HasIndex("tipo_combustivelId");
+
+                    b.HasIndex("viaturaId");
+
+                    b.ToTable("Abastecimento", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Entites.Atendimento", b =>
                 {
                     b.Property<int>("Id")
@@ -38,6 +83,12 @@ namespace Infra.Migrations
 
                     b.Property<decimal>("adicionais")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool?>("ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("cancelado")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("data")
                         .HasColumnType("datetime2");
@@ -175,6 +226,102 @@ namespace Infra.Migrations
                     b.ToTable("Despesas_Atendimento", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entites.Fornecedor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("cep")
+                        .HasColumnType("int");
+
+                    b.Property<string>("cidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cnpj")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("gerenteId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("nome_fantasia")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("numero")
+                        .HasColumnType("int");
+
+                    b.Property<string>("razao_social")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("rua")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Fornecedor", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entites.Manutencao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("descricao_manutencao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("gerenteId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("nome_manutencao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("valor_total_manutencao")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("viaturaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.HasIndex("viaturaId");
+
+                    b.ToTable("Manutencao", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Entites.Nivel", b =>
                 {
                     b.Property<int>("Id")
@@ -193,6 +340,23 @@ namespace Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Nivel", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entites.Tipo_Combustivel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("nome_combustivel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tipo_Combustivel", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entites.Tipo_Servico", b =>
@@ -321,6 +485,10 @@ namespace Infra.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("user_name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -411,6 +579,39 @@ namespace Infra.Migrations
                     b.ToTable("Viatura", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entites.Abastecimento", b =>
+                {
+                    b.HasOne("Domain.Entites.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId");
+
+                    b.HasOne("Domain.Entites.Fornecedor", "Fornecedor")
+                        .WithMany("Abastecimentos")
+                        .HasForeignKey("fornecedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entites.Tipo_Combustivel", "Tipo_Combustivel")
+                        .WithMany("Abastecimento")
+                        .HasForeignKey("tipo_combustivelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entites.Viatura", "Viatura")
+                        .WithMany()
+                        .HasForeignKey("viaturaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fornecedor");
+
+                    b.Navigation("Tipo_Combustivel");
+
+                    b.Navigation("Usuario");
+
+                    b.Navigation("Viatura");
+                });
+
             modelBuilder.Entity("Domain.Entites.Atendimento", b =>
                 {
                     b.HasOne("Domain.Entites.Tipo_Servico", "Tipo_Servico")
@@ -462,6 +663,32 @@ namespace Infra.Migrations
                         .IsRequired();
 
                     b.Navigation("Atendimento");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Fornecedor", b =>
+                {
+                    b.HasOne("Domain.Entites.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Manutencao", b =>
+                {
+                    b.HasOne("Domain.Entites.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId");
+
+                    b.HasOne("Domain.Entites.Viatura", "Viatura")
+                        .WithMany()
+                        .HasForeignKey("viaturaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+
+                    b.Navigation("Viatura");
                 });
 
             modelBuilder.Entity("Domain.Entites.Usuario", b =>
@@ -518,9 +745,19 @@ namespace Infra.Migrations
                     b.Navigation("Usuarios");
                 });
 
+            modelBuilder.Entity("Domain.Entites.Fornecedor", b =>
+                {
+                    b.Navigation("Abastecimentos");
+                });
+
             modelBuilder.Entity("Domain.Entites.Nivel", b =>
                 {
                     b.Navigation("Cargos");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Tipo_Combustivel", b =>
+                {
+                    b.Navigation("Abastecimento");
                 });
 
             modelBuilder.Entity("Domain.Entites.Tipo_Servico", b =>

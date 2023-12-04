@@ -22,6 +22,10 @@ namespace Infra
             modelBuilder.Entity<Veiculo>().ToTable("Veiculo");
             modelBuilder.Entity<Tipo_Veiculo>().ToTable("Tipo_Veiculo");
             modelBuilder.Entity<Tipo_Servico>().ToTable("Tipo_Servico");
+            modelBuilder.Entity<Fornecedor>().ToTable("Fornecedor");
+            modelBuilder.Entity<Tipo_Combustivel>().ToTable("Tipo_Combustivel");
+            modelBuilder.Entity<Manutencao>().ToTable("Manutencao");
+            modelBuilder.Entity<Abastecimento>().ToTable("Abastecimento");
         }
 
         public DbSet<Atendimento>? Atendimentos { get; set; }
@@ -34,5 +38,9 @@ namespace Infra
         public DbSet<Cargo>? Cargos { get; set; }
         public DbSet<Nivel>? Niveis { get; set; }
         public DbSet<Tipo_Viatura>? Tipo_Viaturas { get; set; }
+        public DbSet<Fornecedor>? Fornecedor { get; set; }
+        public DbSet<Tipo_Combustivel>? Tipo_Combustivel { get; set; }
+        public DbSet<Manutencao>? Manutencao { get; set; }
+        public DbSet<Abastecimento>? Abastecimento { get; set; }
     }
 }

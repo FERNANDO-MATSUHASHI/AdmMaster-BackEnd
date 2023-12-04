@@ -30,6 +30,7 @@ namespace Domain.Service.Services
             {
                 nome = usuarioViewModel.nome,
                 cpf = usuarioViewModel.cpf,
+                telefone = usuarioViewModel.telefone,
                 email = usuarioViewModel.email,
                 data_nascimento = usuarioViewModel.data_nascimento,
                 criado_em = DateTime.Now,
@@ -57,6 +58,7 @@ namespace Domain.Service.Services
 
             originalUsuario.nome = usuarioViewModel.nome;
             originalUsuario.cpf = usuarioViewModel.cpf;
+            originalUsuario.telefone = usuarioViewModel.telefone;
             originalUsuario.email = usuarioViewModel.email;
             originalUsuario.data_nascimento = usuarioViewModel.data_nascimento;
             originalUsuario.criado_em = DateTime.Now;

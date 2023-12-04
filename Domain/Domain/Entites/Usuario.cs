@@ -7,6 +7,7 @@ namespace Domain.Entites
         public int Id { get; set; }
         public string nome { get; set; }
         public string cpf { get; set; }
+        public string telefone { get; set; }
         public string? email { get; set; }
         public DateTime data_nascimento { get; set; }
         public DateTime criado_em { get; set; }
@@ -22,8 +23,8 @@ namespace Domain.Entites
         [Column(TypeName = "decimal(5,2)")]
         public Decimal comissao { get; set; }
         public int? gerenteId { get; set; }
-        public int cargoId { get; set; }
 
+        public int cargoId { get; set; }
         public Cargo? Cargo { get; set; }
         public List<Atendimento>? Atendimentos { get; set; }
     }
