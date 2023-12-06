@@ -10,5 +10,6 @@ namespace Infra.Interfaces
         public void UpdateAbastecimento(Abastecimento abastecimento);
         public void DeleteAbastecimento(Abastecimento abastecimento);
         public List<Abastecimento> GetAbastecimentoGerenteById(int id);
+        public List<Abastecimento> GetAbastecimentosByFilter(int? fornecedorId, int gerenteId, DateTime? dataInicial, DateTime? dataFinal);
     }
 }

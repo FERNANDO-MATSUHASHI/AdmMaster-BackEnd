@@ -12,5 +12,6 @@ namespace Domain.Service.Interfaces
         void DeleteAtendimento(int id);
         List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal, int usuarioId);
         List<Atendimento> GetAtendimentoGerenteById(int gerenteId);
+        List<Atendimento> GetAtendimentosAnalise(int gerenteId);
     }
 }

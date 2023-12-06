@@ -5,6 +5,7 @@ namespace Domain.Entites
     public class Manutencao
     {
         public int Id { get; set; }
+        public DateTime data_manutencao { get; set; }
         public string nome_manutencao { get; set; }
         public string descricao_manutencao { get; set; }
 

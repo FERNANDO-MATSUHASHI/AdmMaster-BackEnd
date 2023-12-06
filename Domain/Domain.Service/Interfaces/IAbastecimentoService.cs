@@ -11,5 +11,6 @@ namespace Domain.Service.Interfaces
         void InsertAbastecimento(AbastecimentoViewModel abastecimentoViewModel);
         void UpdateAbastecimento(int id, AbastecimentoViewModel abastecimentoViewModel);
         List<Abastecimento> GetAbastecimentoGerenteById(int gerenteId);
+        List<Abastecimento> GetAbastecimentosByFilter(int? fornecedorId, int gerenteId, DateTime? dataInicial, DateTime? dataFinal);
     }
 }

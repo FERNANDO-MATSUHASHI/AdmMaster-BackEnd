@@ -101,5 +101,19 @@ namespace Application.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("GetAbastecimentosByFilter")]
+        public IActionResult GetAbastecimentosByFilter(int? fornecedorId, int gerenteId, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            try
+            {
+                var abastecimentos = _abastecimentoApplication.GetAbastecimentosByFilter(fornecedorId, gerenteId, dataInicial, dataFinal);
+                return Ok(abastecimentos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

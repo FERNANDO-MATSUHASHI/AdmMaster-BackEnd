@@ -43,5 +43,9 @@ namespace Application.Service.Application
         {
             return _abastecimentoService.GetAbastecimentoGerenteById(gerenteId);
         }
+        public List<Abastecimento> GetAbastecimentosByFilter(int? fornecedorId, int gerenteId, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            return _abastecimentoService.GetAbastecimentosByFilter(fornecedorId, gerenteId, dataInicial, dataFinal);
+        }
     }
 }

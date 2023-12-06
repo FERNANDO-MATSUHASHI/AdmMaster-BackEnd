@@ -29,6 +29,7 @@ namespace Domain.Service.Services
         {
             var manutencao = new Manutencao
             {
+                data_manutencao = manutencaoViewModel.data_manutencao,
                 nome_manutencao = manutencaoViewModel.nome_manutencao,
                 descricao_manutencao = manutencaoViewModel.descricao_manutencao,
                 viaturaId = manutencaoViewModel.viaturaId,
@@ -45,6 +46,7 @@ namespace Domain.Service.Services
             if (originalManutencao == null)
                 throw new Exception("Manutencao nao existe.");
 
+            originalManutencao.data_manutencao = manutencaoViewModel.data_manutencao;
             originalManutencao.nome_manutencao = manutencaoViewModel.nome_manutencao;
             originalManutencao.descricao_manutencao = manutencaoViewModel.descricao_manutencao;
             originalManutencao.viaturaId = manutencaoViewModel.viaturaId;

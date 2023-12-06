@@ -112,5 +112,9 @@ namespace Domain.Service.Services
         {
             return _atendimentoRepository.GetAtendimentoGerenteById(gerenteId);
         }
+        public List<Atendimento> GetAtendimentosAnalise(int gerenteId)
+        {
+            return _atendimentoRepository.GetAtendimentosAnalise(gerenteId);
+        }
     }
 }

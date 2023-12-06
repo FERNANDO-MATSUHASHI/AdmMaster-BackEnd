@@ -98,5 +98,19 @@ namespace Application.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("Em_Analise/{gerenteId}")]
+        public IActionResult GetAtendimentosAnalise(int gerenteId)
+        {
+            try
+            {
+                var atendimentos = _atendimentoApplication.GetAtendimentosAnalise(gerenteId);
+                return Ok(atendimentos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

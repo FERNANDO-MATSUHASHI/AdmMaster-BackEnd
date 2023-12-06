@@ -43,5 +43,9 @@ namespace Application.Service.Application
         {
             return _atendimentoService.GetAtendimentoGerenteById(gerenteId);
         }
+        public List<Atendimento> GetAtendimentosAnalise(int gerenteId)
+        {
+            return _atendimentoService.GetAtendimentosAnalise(gerenteId);
+        }
     }
 }

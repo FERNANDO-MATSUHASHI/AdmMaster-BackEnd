@@ -42,5 +42,9 @@ namespace Infra.Repositories
         {
             return _context.Atendimentos.Where(x => x.gerenteId == gerenteId).ToList();
         }
+        public List<Atendimento> GetAtendimentosAnalise(int gerenteId)
+        {
+            return _context.Atendimentos.Where(x => x.em_analise == true && x.gerenteId == gerenteId).ToList();
+        }
     }
 }

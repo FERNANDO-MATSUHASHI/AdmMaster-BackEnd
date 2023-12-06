@@ -66,9 +66,15 @@ namespace Domain.Service.Services
 
             _abastecimentoRepository.DeleteAbastecimento(originalAbastecimento);
         }
+
         public List<Abastecimento> GetAbastecimentoGerenteById(int gerenteId)
         {
             return _abastecimentoRepository.GetAbastecimentoGerenteById(gerenteId);
+        }
+
+        public List<Abastecimento> GetAbastecimentosByFilter(int? fornecedorId, int gerenteId, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            return _abastecimentoRepository.GetAbastecimentosByFilter(fornecedorId, gerenteId, dataInicial, dataFinal);
         }
     }
 }

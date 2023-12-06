@@ -5,6 +5,7 @@ namespace Domain.ViewModel
 {
     public class ManutencaoViewModel
     {
+        public DateTime data_manutencao { get; set; }
         public string nome_manutencao { get; set; }
         public string descricao_manutencao { get; set; }
 
