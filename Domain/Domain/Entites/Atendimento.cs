@@ -50,5 +50,8 @@ namespace Domain.Entites
 
         public int tipoServicoId { get; set; }
         public Tipo_Servico? Tipo_Servico { get; set; }
+
+        public int empresaId { get; set; }
+        public Empresa? Empresa { get; set; }
     }
 }

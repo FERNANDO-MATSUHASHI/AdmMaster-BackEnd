@@ -26,15 +26,22 @@ namespace Infra.Repositories
 
         public void InsertUsuario(Usuario usuario)
         {
-            _context.Usuarios.Add(usuario);
-            _context.SaveChanges();
+            var email = _context.Usuarios.Where(x => x.email == usuario.email).FirstOrDefault();
+            if (email == null)
+            {
+                _context.Usuarios.Add(usuario);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Email já existe.");
+            }
         }
 
         public void UpdateUsuario(Usuario usuario)
         {
             _context.Usuarios.Update(usuario);
             _context.SaveChanges();
-
         }
         public void DeleteUsuario(Usuario usuario)
         {

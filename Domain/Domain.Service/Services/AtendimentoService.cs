@@ -52,7 +52,8 @@ namespace Domain.Service.Services
                 usuarioId = AtendimentoViewModel.usuarioId,
                 gerenteId = AtendimentoViewModel.gerenteId,
                 tipoVeiculoId = AtendimentoViewModel.tipoVeiculoId,
-                tipoServicoId = AtendimentoViewModel.tipoServicoId
+                tipoServicoId = AtendimentoViewModel.tipoServicoId,
+                empresaId = AtendimentoViewModel.empresaId,
             };
 
             _atendimentoRepository.InsertAtendimento(atendimento);
@@ -89,6 +90,7 @@ namespace Domain.Service.Services
             originalAtendimento.gerenteId = atendimentoViewModel.gerenteId;
             originalAtendimento.tipoVeiculoId = atendimentoViewModel.tipoVeiculoId;
             originalAtendimento.tipoServicoId = atendimentoViewModel.tipoServicoId;
+            originalAtendimento.empresaId = atendimentoViewModel.empresaId;
 
             _atendimentoRepository.UpdateAtendimento(originalAtendimento);
         }

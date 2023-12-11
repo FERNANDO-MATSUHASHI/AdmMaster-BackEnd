@@ -42,5 +42,6 @@ namespace Domain.ViewModel
         public int gerenteId { get; set; }
         public int tipoVeiculoId { get; set; }
         public int tipoServicoId { get; set; }
+        public int empresaId { get; set; }
     }
 }

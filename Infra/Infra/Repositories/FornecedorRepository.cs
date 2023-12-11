@@ -24,8 +24,16 @@ namespace Infra.Repositories
 
         public void InsertFornecedor(Fornecedor fornecedor)
         {
-            _context.Fornecedor.Add(fornecedor);
-            _context.SaveChanges();
+            var cnpj = _context.Fornecedor.Where(x => x.cnpj == fornecedor.cnpj).FirstOrDefault();
+            if (cnpj == null)
+            {
+                _context.Fornecedor.Add(fornecedor);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("CNPJ já existe.");
+            }
         }
         public void UpdateFornecedor(Fornecedor fornecedor)
         {

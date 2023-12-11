@@ -26,6 +26,7 @@ namespace Infra
             modelBuilder.Entity<Tipo_Combustivel>().ToTable("Tipo_Combustivel");
             modelBuilder.Entity<Manutencao>().ToTable("Manutencao");
             modelBuilder.Entity<Abastecimento>().ToTable("Abastecimento");
+            modelBuilder.Entity<Empresa>().ToTable("Empresa");
         }
 
         public DbSet<Atendimento>? Atendimentos { get; set; }
@@ -42,5 +43,6 @@ namespace Infra
         public DbSet<Tipo_Combustivel>? Tipo_Combustivel { get; set; }
         public DbSet<Manutencao>? Manutencao { get; set; }
         public DbSet<Abastecimento>? Abastecimento { get; set; }
+        public DbSet<Empresa>? Empresa { get; set; }
     }
 }

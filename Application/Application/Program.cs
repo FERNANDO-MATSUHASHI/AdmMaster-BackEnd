@@ -65,6 +65,7 @@ builder.Services.AddScoped<IFornecedorRepository, FornecedorRepository>();
 builder.Services.AddScoped<ITipoCombustivelRepository, TipoCombustivelRepository>();
 builder.Services.AddScoped<IManutencaoRepository, ManutencaoRepository>();
 builder.Services.AddScoped<IAbastecimentoRepository, AbastecimentoRepository>();
+builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
 
 
 //Dependency Injection Application
@@ -85,6 +86,7 @@ builder.Services.AddScoped<IFornecedorApplication, FornecedorApplication>();
 builder.Services.AddScoped<ITipoCombustivelApplication, TipoCombustivelApplication>();
 builder.Services.AddScoped<IManutencaoApplication, ManutencaoApplication>();
 builder.Services.AddScoped<IAbastecimentoApplication, AbastecimentoApplication>();
+builder.Services.AddScoped<IEmpresaApplication, EmpresaApplication>();
 
 
 //Dependency Injection Service
@@ -105,6 +107,7 @@ builder.Services.AddScoped<IFornecedorService, FornecedorService>();
 builder.Services.AddScoped<ITipoCombustivelService, TipoCombustivelService>();
 builder.Services.AddScoped<IManutencaoService, ManutencaoService>();
 builder.Services.AddScoped<IAbastecimentoService, AbastecimentoService>();
+builder.Services.AddScoped<IEmpresaService, EmpresaService>();
 
 
 ////Dependency Injection SqlContext
