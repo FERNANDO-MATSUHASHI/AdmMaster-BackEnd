@@ -25,5 +25,6 @@ namespace Domain.ViewModel
         public int Tipo_VeiculoId { get; set; }
         public int Tipo_ServicoId { get; set; }
         public int viaturaId { get; set; }
+        public int gerenteId { get; set; }
     }
 }

@@ -10,5 +10,6 @@ namespace Domain.Service.Interfaces
         Tipo_Servico GetTipoServicoById(int id);
         void InsertTipoServico(TipoServicoViewModel tipoServicoViewModel);
         void UpdateTipoServico(int id, TipoServicoViewModel tipoServicoViewModel);
+        List<Tipo_Servico> GetTipoServicosByGerenteId(int gerenteId);
     }
 }

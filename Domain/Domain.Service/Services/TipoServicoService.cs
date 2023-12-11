@@ -2,6 +2,7 @@
 using Domain.Service.Interfaces;
 using Domain.ViewModel;
 using Infra.Interfaces;
+using Infra.Repositories;
 
 namespace Domain.Service.Services
 {
@@ -28,7 +29,8 @@ namespace Domain.Service.Services
         {
             var tipoServico = new Tipo_Servico
             {
-                descricao = TipoServicoViewModel.descricao
+                descricao = TipoServicoViewModel.descricao,
+                gerenteId = TipoServicoViewModel.gerenteId,
             };
 
             _tipoServicoRepository.InsertTipoServico(tipoServico);
@@ -41,6 +43,7 @@ namespace Domain.Service.Services
                 throw new Exception("TipoServico nao existe.");
 
             originalTipoServico.descricao = TipoServicoViewModel.descricao;
+            originalTipoServico.gerenteId = TipoServicoViewModel.gerenteId;
 
             _tipoServicoRepository.UpdateTipoServico(originalTipoServico);
         }
@@ -52,6 +55,12 @@ namespace Domain.Service.Services
                 throw new Exception("TipoServico nao existe.");
 
             _tipoServicoRepository.DeleteTipoServico(originalTipoServico);
+        }
+        public List<Tipo_Servico> GetTipoServicosByGerenteId(int gerenteId)
+        {
+            var tipoServicosViewModel = _tipoServicoRepository.GetTipoServicosByGerenteId(gerenteId);
+
+            return tipoServicosViewModel;
         }
     }
 }

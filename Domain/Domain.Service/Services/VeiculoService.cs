@@ -2,6 +2,7 @@
 using Domain.Service.Interfaces;
 using Domain.ViewModel;
 using Infra.Interfaces;
+using Infra.Repositories;
 
 namespace Domain.Service.Services
 {
@@ -38,7 +39,8 @@ namespace Domain.Service.Services
                 descricao = veiculoViewModel.descricao,
                 Tipo_ServicoId = veiculoViewModel.Tipo_ServicoId,
                 Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId,
-                viaturaId = veiculoViewModel.viaturaId
+                viaturaId = veiculoViewModel.viaturaId,
+                gerenteId = veiculoViewModel.gerenteId
             };
 
             _veiculoRepository.InsertVeiculo(veiculo);
@@ -61,6 +63,7 @@ namespace Domain.Service.Services
             originalVeiculo.Tipo_ServicoId = veiculoViewModel.Tipo_ServicoId;
             originalVeiculo.Tipo_VeiculoId = veiculoViewModel.Tipo_VeiculoId;
             originalVeiculo.viaturaId = veiculoViewModel.viaturaId;
+            originalVeiculo.gerenteId = veiculoViewModel.gerenteId;
 
             _veiculoRepository.UpdateVeiculo(originalVeiculo);
         }
@@ -72,6 +75,12 @@ namespace Domain.Service.Services
                 throw new Exception("Veiculo nao existe.");
 
             _veiculoRepository.DeleteVeiculo(originalVeiculo);
+        }
+        public List<Veiculo> GetVeiculosByGerenteId(int gerenteId)
+        {
+            var veiculoViewModel = _veiculoRepository.GetVeiculosByGerenteId(gerenteId);
+
+            return veiculoViewModel;
         }
     }
 }

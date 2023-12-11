@@ -9,5 +9,6 @@ namespace Infra.Interfaces
         public void InsertVeiculo(Veiculo veiculo);
         public void UpdateVeiculo(Veiculo veiculo);
         public void DeleteVeiculo(Veiculo veiculo);
+        List<Veiculo>? GetVeiculosByGerenteId(int gerenteId);
     }
 }

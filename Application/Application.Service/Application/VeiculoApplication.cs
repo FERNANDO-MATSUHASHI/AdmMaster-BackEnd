@@ -1,6 +1,7 @@
 ﻿using Application.Service.Interface;
 using Domain.Entites;
 using Domain.Service.Interfaces;
+using Domain.Service.Services;
 using Domain.ViewModel;
 
 namespace Application.Service.Application
@@ -37,6 +38,10 @@ namespace Application.Service.Application
         public void DeleteVeiculo(int id)
         {
             _veiculoService.DeleteVeiculo(id);
+        }
+        List<Veiculo> IVeiculoApplication.GetVeiculosByGerenteId(int gerenteId)
+        {
+            return _veiculoService.GetVeiculosByGerenteId(gerenteId);
         }
     }
 }

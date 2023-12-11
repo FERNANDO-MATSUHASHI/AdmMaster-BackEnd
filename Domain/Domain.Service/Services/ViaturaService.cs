@@ -2,6 +2,7 @@
 using Domain.Service.Interfaces;
 using Domain.ViewModel;
 using Infra.Interfaces;
+using Infra.Repositories;
 
 namespace Domain.Service.Services
 {
@@ -31,6 +32,7 @@ namespace Domain.Service.Services
                 sigla = viaturaViewModel.sigla,
                 obs_vtr = viaturaViewModel.obs_vtr,
                 Tipo_ViaturaId = viaturaViewModel.Tipo_ViaturaId,
+                gerenteId = viaturaViewModel.gerenteId,
             };
 
             _viaturaRepository.InsertViatura(viatura);
@@ -45,6 +47,7 @@ namespace Domain.Service.Services
             originalViatura.sigla = viaturaViewModel.sigla;
             originalViatura.obs_vtr = viaturaViewModel.obs_vtr;
             originalViatura.Tipo_ViaturaId = viaturaViewModel.Tipo_ViaturaId;
+            originalViatura.gerenteId = viaturaViewModel.gerenteId;
 
             _viaturaRepository.UpdateViatura(originalViatura);
         }
@@ -56,6 +59,12 @@ namespace Domain.Service.Services
                 throw new Exception("Viatura nao existe.");
 
             _viaturaRepository.DeleteViatura(originalViatura);
+        }
+        public List<Viatura> GetViaturasByGerenteId(int gerenteId)
+        {
+            var viaturasViewModel = _viaturaRepository.GetViaturasByGerenteId(gerenteId);
+
+            return viaturasViewModel;
         }
     }
 }

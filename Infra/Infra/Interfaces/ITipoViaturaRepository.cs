@@ -1,4 +1,5 @@
 ﻿using Domain.Entites;
+using Domain.ViewModel;
 
 namespace Infra.Interfaces
 {
@@ -9,5 +10,6 @@ namespace Infra.Interfaces
         public void InsertTipoViatura(Tipo_Viatura tipoViatura);
         public void UpdateTipoViatura(Tipo_Viatura tipoViatura);
         public void DeleteTipoViatura(Tipo_Viatura tipoViatura);
+        List<Tipo_Viatura>? GetTipoViaturasByGerenteId(int gerenteId);
     }
 }

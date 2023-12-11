@@ -10,5 +10,6 @@ namespace Application.Service.Interface
         Veiculo GetVeiculoById(int id);
         void InsertVeiculo(VeiculoViewModel VeiculoViewModel);
         void UpdateVeiculo(int id, VeiculoViewModel VeiculoViewModel);
+        List<Veiculo> GetVeiculosByGerenteId(int gerenteId);
     }
 }

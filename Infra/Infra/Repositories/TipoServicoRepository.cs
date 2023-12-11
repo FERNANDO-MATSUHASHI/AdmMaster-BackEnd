@@ -1,5 +1,6 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -37,6 +38,18 @@ namespace Infra.Repositories
         {
             _context.Tipo_Servicos.Remove(tipoServico);
             _context.SaveChanges();
+        }
+        public List<Tipo_Servico> GetTipoServicosByGerenteId(int gerenteId)
+        {
+            var query = (from i in _context.Tipo_Servicos.AsNoTracking()
+                         where i.gerenteId == gerenteId
+                         select new Tipo_Servico
+                         {
+                             Id = i.Id,
+                             descricao = i.descricao,
+                             gerenteId = i.gerenteId
+                         });
+            return query.ToList();
         }
     }
 }

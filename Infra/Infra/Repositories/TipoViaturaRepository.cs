@@ -1,5 +1,7 @@
 ﻿using Domain.Entites;
+using Domain.ViewModel;
 using Infra.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -37,6 +39,23 @@ namespace Infra.Repositories
         {
             _context.Tipo_Viaturas.Remove(tipoViatura);
             _context.SaveChanges();
+        }
+        public List<Tipo_Viatura> GetTipoViaturasByGerenteId(int gerenteId)
+        {
+            var query = (from i in _context.Tipo_Viaturas.AsNoTracking()
+                         where i.gerenteId == gerenteId
+                         select new Tipo_Viatura
+                         {
+                             Id = i.Id,
+                             marca = i.marca,
+                             modelo = i.modelo,
+                             placa = i.placa,
+                             ano = i.ano,
+                             ano_modelo = i.ano_modelo,
+                             descricao = i.descricao,
+                             gerenteId = i.gerenteId
+                         });
+            return query.ToList();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Application.Service.Interface;
 using Domain.Entites;
 using Domain.Service.Interfaces;
+using Domain.Service.Services;
 using Domain.ViewModel;
 
 namespace Application.Service.Application
@@ -37,6 +38,10 @@ namespace Application.Service.Application
         public void DeleteViatura(int id)
         {
             _viaturaService.DeleteViatura(id);
+        }
+        List<Viatura> IViaturaApplication.GetViaturasByGerenteId(int gerenteId)
+        {
+            return _viaturaService.GetViaturasByGerenteId(gerenteId);
         }
     }
 }

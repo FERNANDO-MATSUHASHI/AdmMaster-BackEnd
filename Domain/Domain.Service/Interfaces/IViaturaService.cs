@@ -10,5 +10,6 @@ namespace Domain.Service.Interfaces
         Viatura GetViaturaById(int id);
         void InsertViatura(ViaturaViewModel viaturaViewModel);
         void UpdateViatura(int id, ViaturaViewModel viaturaViewModel);
+        List<Viatura> GetViaturasByGerenteId(int gerenteId);
     }
 }

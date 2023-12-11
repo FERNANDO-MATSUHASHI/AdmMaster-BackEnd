@@ -1,5 +1,6 @@
 ﻿using Domain.Entites;
 using Infra.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
 {
@@ -36,6 +37,20 @@ namespace Infra.Repositories
         {
             _context.Viaturas.Remove(viatura);
             _context.SaveChanges();
+        }
+        public List<Viatura> GetViaturasByGerenteId(int gerenteId)
+        {
+            var query = (from i in _context.Viaturas.AsNoTracking()
+                         where i.gerenteId == gerenteId
+                         select new Viatura
+                         {
+                             Id = i.Id,
+                             sigla = i.sigla,
+                             obs_vtr = i.obs_vtr,
+                             Tipo_ViaturaId = i.Tipo_ViaturaId,
+                             gerenteId = i.gerenteId
+                         });
+            return query.ToList();
         }
     }
 }

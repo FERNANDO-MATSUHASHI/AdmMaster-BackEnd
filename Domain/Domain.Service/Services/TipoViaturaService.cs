@@ -2,6 +2,7 @@
 using Domain.Service.Interfaces;
 using Domain.ViewModel;
 using Infra.Interfaces;
+using Infra.Repositories;
 
 namespace Domain.Service.Services
 {
@@ -31,7 +32,10 @@ namespace Domain.Service.Services
                 marca = tipoViaturaViewModel.marca,
                 modelo = tipoViaturaViewModel.modelo,
                 placa = tipoViaturaViewModel.placa,
-                descricao = tipoViaturaViewModel.descricao
+                ano = tipoViaturaViewModel.ano,
+                ano_modelo = tipoViaturaViewModel.ano_modelo,
+                descricao = tipoViaturaViewModel.descricao,
+                gerenteId = tipoViaturaViewModel.gerenteId
             };
 
             _tipoViaturaRepository.InsertTipoViatura(tipoViatura);
@@ -46,7 +50,10 @@ namespace Domain.Service.Services
             originalTipoViatura.marca = tipoViaturaViewModel.marca;
             originalTipoViatura.modelo = tipoViaturaViewModel.modelo;
             originalTipoViatura.placa = tipoViaturaViewModel.placa;
+            originalTipoViatura.ano = tipoViaturaViewModel.ano;
+            originalTipoViatura.ano_modelo = tipoViaturaViewModel.ano_modelo;
             originalTipoViatura.descricao = tipoViaturaViewModel.descricao;
+            originalTipoViatura.gerenteId = tipoViaturaViewModel.gerenteId;
 
             _tipoViaturaRepository.UpdateTipoViatura(originalTipoViatura);
         }
@@ -58,6 +65,12 @@ namespace Domain.Service.Services
                 throw new Exception("TipoViatura nao existe.");
 
             _tipoViaturaRepository.DeleteTipoViatura(originalTipoViatura);
+        }
+        public List<Tipo_Viatura> GetTipoViaturasByGerenteId(int gerenteId)
+        {
+            var tipoViaturasViewModel = _tipoViaturaRepository.GetTipoViaturasByGerenteId(gerenteId);
+
+            return tipoViaturasViewModel;
         }
     }
 }

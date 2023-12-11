@@ -33,5 +33,7 @@ namespace Domain.Entites
         public Tipo_Veiculo? Tipo_Veiculo { get; set; }
         public int viaturaId { get; set; }
         public Viatura? Viaturas { get; set; }
+        public int gerenteId { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }

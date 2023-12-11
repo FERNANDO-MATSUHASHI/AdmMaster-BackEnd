@@ -2,6 +2,7 @@
 using Domain.Service.Interfaces;
 using Domain.ViewModel;
 using Infra.Interfaces;
+using Infra.Repositories;
 
 namespace Domain.Service.Services
 {
@@ -30,6 +31,7 @@ namespace Domain.Service.Services
             {
                 modelo = tipoVeiculoViewModel.modelo,
                 descricao = tipoVeiculoViewModel.descricao,
+                gerenteId = tipoVeiculoViewModel.gerenteId,
             };
 
             _tipoVeiculoRepository.InsertTipoVeiculo(tipoVeiculo);
@@ -43,6 +45,7 @@ namespace Domain.Service.Services
 
             originalTipoVeiculo.modelo = tipoVeiculoViewModel.modelo;
             originalTipoVeiculo.descricao = tipoVeiculoViewModel.descricao;
+            originalTipoVeiculo.gerenteId = tipoVeiculoViewModel.gerenteId;
 
             _tipoVeiculoRepository.UpdateTipoVeiculo(originalTipoVeiculo);
         }
@@ -54,6 +57,12 @@ namespace Domain.Service.Services
                 throw new Exception("TipoVeiculo nao existe.");
 
             _tipoVeiculoRepository.DeleteTipoVeiculo(originalTipoVeiculo);
+        }
+        public List<Tipo_Veiculo> GetTipoVeiculosByGerenteId(int gerenteId)
+        {
+            var tipoVeivulosViewModel = _tipoVeiculoRepository.GetTipoVeiculosByGerenteId(gerenteId);
+
+            return tipoVeivulosViewModel;
         }
     }
 }

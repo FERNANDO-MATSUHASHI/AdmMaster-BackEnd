@@ -1,4 +1,5 @@
-﻿using Application.Service.Interface;
+﻿using Application.Service.Application;
+using Application.Service.Interface;
 using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -78,6 +79,20 @@ namespace Application.Controllers
             {
                 _tipoViaturaApplication.DeleteTipoViatura(id);
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("TipoViaturas/{gerenteId}")]
+        public IActionResult GetTipoViaturasByGerenteId(int gerenteId)
+        {
+            try
+            {
+                var tipoViaturas = _tipoViaturaApplication.GetTipoViaturasByGerenteId(gerenteId);
+                return Ok(tipoViaturas);
             }
             catch (Exception ex)
             {

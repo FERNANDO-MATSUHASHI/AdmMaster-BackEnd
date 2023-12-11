@@ -1,6 +1,7 @@
 ﻿using Application.Service.Interface;
 using Domain.Entites;
 using Domain.Service.Interfaces;
+using Domain.Service.Services;
 using Domain.ViewModel;
 
 namespace Application.Service.Application
@@ -37,6 +38,10 @@ namespace Application.Service.Application
         public void DeleteTipoServico(int id)
         {
             _tipoServicoService.DeleteTipoServico(id);
+        }
+        List<Tipo_Servico> ITipoServicoApplication.GetTipoServicosByGerenteId(int gerenteId)
+        {
+            return _tipoServicoService.GetTipoServicosByGerenteId(gerenteId);
         }
     }
 }
