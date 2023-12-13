@@ -45,12 +45,15 @@ namespace Infra.Repositories
             // Obtém o mês corrente
             int mesCorrente = dataAtual.Month;
 
+            // Obtém o ano corrente
+            int anoCorrente = dataAtual.Year;
+
             //return _context.Abastecimento.Where(x => x.gerenteId == gerenteId).ToList();
             var query = from abastecimento in _context.Abastecimento
                         join viatura in _context.Viaturas on abastecimento.viaturaId equals viatura.Id
                         join fornecedor in _context.Fornecedor on abastecimento.fornecedorId equals fornecedor.Id
                         join tipo_combustivel in _context.Tipo_Combustivel on abastecimento.tipo_combustivelId equals tipo_combustivel.Id
-                        where abastecimento.gerenteId == gerenteId && abastecimento.data_abastecimento.Month == mesCorrente
+                        where abastecimento.gerenteId == gerenteId && abastecimento.data_abastecimento.Month == mesCorrente && abastecimento.data_abastecimento.Year == anoCorrente
                         select new Abastecimento()
                         {
                             Id = abastecimento.Id,

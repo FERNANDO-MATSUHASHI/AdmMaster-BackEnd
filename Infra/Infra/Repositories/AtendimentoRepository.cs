@@ -47,7 +47,10 @@ namespace Infra.Repositories
             // Obtém o mês corrente
             int mesCorrente = dataAtual.Month;
 
-            return _context.Atendimentos.Where(x => x.gerenteId == gerenteId && x.data.Month == mesCorrente).ToList();
+            // Obtém o ano corrente
+            int anoCorrente = dataAtual.Year;
+
+            return _context.Atendimentos.Where(x => x.gerenteId == gerenteId && x.data.Month == mesCorrente && x.data.Year == anoCorrente).ToList();
         }
         public List<Atendimento> GetAtendimentosAnalise(int gerenteId)
         {
