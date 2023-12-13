@@ -2,6 +2,7 @@
 {
     public class ComissaoReturnViewModel
     {
+        public int qtdAtendimento { get; set; } 
         public decimal Total { get; set; }
         public decimal TotalComissao { get; set; }
         public decimal Porcentagem { get; set; }

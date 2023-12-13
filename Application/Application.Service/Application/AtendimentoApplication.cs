@@ -1,6 +1,7 @@
 ﻿using Application.Service.Interface;
 using Domain.Entites;
 using Domain.Service.Interfaces;
+using Domain.Service.Services;
 using Domain.ViewModel;
 
 namespace Application.Service.Application
@@ -46,6 +47,14 @@ namespace Application.Service.Application
         public List<Atendimento> GetAtendimentosAnalise(int gerenteId)
         {
             return _atendimentoService.GetAtendimentosAnalise(gerenteId);
+        }
+        public List<Atendimento> GetAtendimentosByFilter(int gerenteId, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            return _atendimentoService.GetAtendimentosByFilter(gerenteId, dataInicial, dataFinal);
+        }
+        public List<Atendimento> GetAtendimentoGerenteTodosById(int gerenteId)
+        {
+            return _atendimentoService.GetAtendimentoGerenteTodosById(gerenteId);
         }
     }
 }

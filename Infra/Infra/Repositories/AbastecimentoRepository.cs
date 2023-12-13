@@ -39,17 +39,24 @@ namespace Infra.Repositories
         }
         public List<Abastecimento> GetAbastecimentoGerenteById(int gerenteId)
         {
+            // Obtém a data e hora atuais
+            DateTime dataAtual = DateTime.Now;
+
+            // Obtém o mês corrente
+            int mesCorrente = dataAtual.Month;
+
             //return _context.Abastecimento.Where(x => x.gerenteId == gerenteId).ToList();
             var query = from abastecimento in _context.Abastecimento
                         join viatura in _context.Viaturas on abastecimento.viaturaId equals viatura.Id
                         join fornecedor in _context.Fornecedor on abastecimento.fornecedorId equals fornecedor.Id
                         join tipo_combustivel in _context.Tipo_Combustivel on abastecimento.tipo_combustivelId equals tipo_combustivel.Id
-                        where abastecimento.gerenteId == gerenteId
+                        where abastecimento.gerenteId == gerenteId && abastecimento.data_abastecimento.Month == mesCorrente
                         select new Abastecimento()
                         {
                             Id = abastecimento.Id,
                             data_abastecimento = abastecimento.data_abastecimento,
                             valor_unid_abastecimento = abastecimento.valor_unid_abastecimento,
+                            qtd = abastecimento.qtd,
                             valor_total_abastecimento = abastecimento.valor_total_abastecimento,
                             //viaturaId = abastecimento.viaturaId,
                             //fornecedorId = abastecimento.fornecedorId,
@@ -88,6 +95,7 @@ namespace Infra.Repositories
                             Id = abastecimento.Id,
                             data_abastecimento = abastecimento.data_abastecimento,
                             valor_unid_abastecimento = abastecimento.valor_unid_abastecimento,
+                            qtd = abastecimento.qtd,
                             valor_total_abastecimento = abastecimento.valor_total_abastecimento,
                             gerenteId = abastecimento.gerenteId,
                             Viatura = new Viatura()

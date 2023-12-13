@@ -2,6 +2,7 @@
 using Domain.Service.Interfaces;
 using Domain.ViewModel;
 using Infra.Interfaces;
+using Infra.Repositories;
 
 namespace Domain.Service.Services
 {
@@ -117,6 +118,14 @@ namespace Domain.Service.Services
         public List<Atendimento> GetAtendimentosAnalise(int gerenteId)
         {
             return _atendimentoRepository.GetAtendimentosAnalise(gerenteId);
+        }
+        public List<Atendimento> GetAtendimentosByFilter(int gerenteId, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            return _atendimentoRepository.GetAtendimentosByFilter(gerenteId, dataInicial, dataFinal);
+        }
+        public List<Atendimento> GetAtendimentoGerenteTodosById(int gerenteId)
+        {
+            return _atendimentoRepository.GetAtendimentoGerenteTodosById(gerenteId);
         }
     }
 }

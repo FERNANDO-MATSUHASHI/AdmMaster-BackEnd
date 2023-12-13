@@ -39,10 +39,16 @@ namespace Infra.Repositories
         }
         public List<Manutencao> GetManutencaoGerenteById(int gerenteId)
         {
+            // Obtém a data e hora atuais
+            DateTime dataAtual = DateTime.Now;
+
+            // Obtém o mês corrente
+            int mesCorrente = dataAtual.Month;
+
             //return _context.Manutencao.Where(x => x.gerenteId == gerenteId).ToList();
             var query = from manutencao in _context.Manutencao
                         join viatura in _context.Viaturas on manutencao.viaturaId equals viatura.Id
-                        where manutencao.gerenteId == gerenteId
+                        where manutencao.gerenteId == gerenteId && manutencao.data_manutencao.Month == mesCorrente
                         select new Manutencao()
                         {
                             Id = manutencao.Id,

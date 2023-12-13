@@ -11,6 +11,9 @@ namespace Domain.Entites
         public decimal? valor_unid_abastecimento { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
+        public decimal? qtd { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
         public decimal? valor_total_abastecimento { get; set; }
 
         public int viaturaId { get; set; }

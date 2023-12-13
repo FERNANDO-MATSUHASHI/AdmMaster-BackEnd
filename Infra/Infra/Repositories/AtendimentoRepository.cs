@@ -1,4 +1,5 @@
 ﻿using Domain.Entites;
+using Domain.ViewModel;
 using Infra.Interfaces;
 
 namespace Infra.Repositories
@@ -40,11 +41,59 @@ namespace Infra.Repositories
         }
         public List<Atendimento> GetAtendimentoGerenteById(int gerenteId)
         {
-            return _context.Atendimentos.Where(x => x.gerenteId == gerenteId).ToList();
+            // Obtém a data e hora atuais
+            DateTime dataAtual = DateTime.Now;
+
+            // Obtém o mês corrente
+            int mesCorrente = dataAtual.Month;
+
+            return _context.Atendimentos.Where(x => x.gerenteId == gerenteId && x.data.Month == mesCorrente).ToList();
         }
         public List<Atendimento> GetAtendimentosAnalise(int gerenteId)
         {
             return _context.Atendimentos.Where(x => x.em_analise == true && x.gerenteId == gerenteId).ToList();
+        }
+        public List<Atendimento> GetAtendimentosByFilter(int gerenteId, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            var query = from atendimento in _context.Atendimentos
+                        where atendimento.gerenteId == gerenteId &&
+                            (dataInicial == null || atendimento.data.Date >= dataInicial) &&
+                            (dataFinal == null || atendimento.data.Date <= dataFinal)
+                        select new Atendimento()
+                        {
+                            data = atendimento.data,
+                            qru = atendimento.qru,
+                            ris = atendimento.ris,
+                            patins = atendimento.patins,
+                            rodaExtra = atendimento.rodaExtra,
+                            qth = atendimento.qth,
+                            qti = atendimento.qti,
+                            km = atendimento.km,
+                            noturno = atendimento.noturno,
+                            qtd_hora_parada = atendimento.qtd_hora_parada,
+                            obs_hora_parada = atendimento.obs_hora_parada,
+                            hospedagem = atendimento.hospedagem,
+                            qtd_pedagio = atendimento.qtd_pedagio,
+                            pedagio = atendimento.pedagio,
+                            adicionais = atendimento.adicionais,
+                            obs_adicionais = atendimento.obs_adicionais,
+                            valor_total = atendimento.valor_total,
+                            em_analise = atendimento.em_analise,
+                            cancelado = atendimento.cancelado,
+                            ativo = atendimento.ativo,
+                            viaturaId = atendimento.viaturaId,
+                            usuarioId = atendimento.usuarioId,
+                            gerenteId = atendimento.gerenteId,
+                            tipoVeiculoId = atendimento.tipoVeiculoId,
+                            tipoServicoId = atendimento.tipoServicoId,
+                            empresaId = atendimento.empresaId,
+                         };
+            return query.ToList();
+        }
+
+        public List<Atendimento> GetAtendimentoGerenteTodosById(int gerenteId)
+        {
+            return _context.Atendimentos.Where(x => x.gerenteId == gerenteId).ToList();
         }
     }
 }

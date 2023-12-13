@@ -1,4 +1,5 @@
-﻿using Application.Service.Interface;
+﻿using Application.Service.Application;
+using Application.Service.Interface;
 using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -106,6 +107,34 @@ namespace Application.Controllers
             {
                 var atendimentos = _atendimentoApplication.GetAtendimentosAnalise(gerenteId);
                 return Ok(atendimentos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GetAtendimentosByFilter")]
+        public IActionResult GetAtendimentosByFilter(int gerenteId, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            try
+            {
+                var atendimentos = _atendimentoApplication.GetAtendimentosByFilter(gerenteId, dataInicial, dataFinal);
+                return Ok(atendimentos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GerenteTodos/{gerenteId}")]
+        public IActionResult GetAtendimentoGerenteTodosById(int gerenteId)
+        {
+            try
+            {
+                var atendimento = _atendimentoApplication.GetAtendimentoGerenteTodosById(gerenteId);
+                return Ok(atendimento);
             }
             catch (Exception ex)
             {

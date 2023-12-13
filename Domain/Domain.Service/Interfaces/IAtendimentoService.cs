@@ -13,5 +13,7 @@ namespace Domain.Service.Interfaces
         List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal, int usuarioId);
         List<Atendimento> GetAtendimentoGerenteById(int gerenteId);
         List<Atendimento> GetAtendimentosAnalise(int gerenteId);
+        List<Atendimento> GetAtendimentosByFilter(int gerenteId, DateTime? dataInicial, DateTime? dataFinal);
+        List<Atendimento> GetAtendimentoGerenteTodosById(int gerenteId);
     }
 }

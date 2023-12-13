@@ -12,5 +12,7 @@ namespace Infra.Interfaces
         List<Atendimento> GetAtendimentoByBetweenDate(DateTime dataInicial, DateTime dataFinal, int usuarioId);
         public List<Atendimento> GetAtendimentoGerenteById(int id);
         List<Atendimento> GetAtendimentosAnalise(int gerenteId);
+        public List<Atendimento> GetAtendimentosByFilter(int gerenteId, DateTime? dataInicial, DateTime? dataFinal);
+        public List<Atendimento> GetAtendimentoGerenteTodosById(int id);
     }
 }

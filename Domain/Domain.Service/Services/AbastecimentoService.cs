@@ -31,6 +31,7 @@ namespace Domain.Service.Services
             {
                 data_abastecimento = abastecimentoViewModel.data_abastecimento,
                 valor_unid_abastecimento = abastecimentoViewModel.valor_unid_abastecimento,
+                qtd = abastecimentoViewModel.qtd,
                 valor_total_abastecimento = abastecimentoViewModel.valor_total_abastecimento,
                 viaturaId = abastecimentoViewModel.viaturaId,
                 fornecedorId = abastecimentoViewModel.fornecedorId,
@@ -49,6 +50,7 @@ namespace Domain.Service.Services
 
             originalAbastecimento.data_abastecimento = abastecimentoViewModel.data_abastecimento;
             originalAbastecimento.valor_unid_abastecimento = abastecimentoViewModel.valor_unid_abastecimento;
+            originalAbastecimento.qtd = abastecimentoViewModel.qtd;
             originalAbastecimento.valor_total_abastecimento = abastecimentoViewModel.valor_total_abastecimento;
             originalAbastecimento.viaturaId = abastecimentoViewModel.viaturaId;
             originalAbastecimento.fornecedorId = abastecimentoViewModel.fornecedorId;

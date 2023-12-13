@@ -13,6 +13,7 @@ namespace Domain.Service.Services
             retorno.ListaAuxiliar = new List<Aux>();
             decimal total = 0;
             decimal totalComissao = 0;
+            int qtdAtendimentoTotal = 0;
 
             foreach (var item in atendimento) 
             {
@@ -29,10 +30,12 @@ namespace Domain.Service.Services
                 retorno.ListaAuxiliar.Add(teste);
                 total += item.valor_total;
                 totalComissao += comissao;
+                qtdAtendimentoTotal += 1;
             }
             retorno.Total = total;
             retorno.TotalComissao = Math.Round(totalComissao, 2);
             retorno.Porcentagem = usuario.comissao;
+            retorno.qtdAtendimento = qtdAtendimentoTotal;
 
             return retorno;
         }
