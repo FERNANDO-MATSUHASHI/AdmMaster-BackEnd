@@ -38,5 +38,9 @@ namespace Infra.Repositories
             _context.Tipo_Combustivel.Remove(tipoCombustivel);
             _context.SaveChanges();
         }
+        public List<Tipo_Combustivel> GetTipo_CombustivelGerenteById(int gerenteId)
+        {
+            return _context.Tipo_Combustivel.Where(x => x.gerenteId == gerenteId).ToList();
+        }
     }
 }

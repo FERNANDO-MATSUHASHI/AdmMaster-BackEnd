@@ -1,6 +1,7 @@
 ﻿using Application.Service.Interface;
 using Domain.Entites;
 using Domain.Service.Interfaces;
+using Domain.Service.Services;
 using Domain.ViewModel;
 
 namespace Application.Service.Application
@@ -37,6 +38,10 @@ namespace Application.Service.Application
         public void DeleteTipoCombustivel(int id)
         {
             _tipoCombustivelService.DeleteTipoCombustivel(id);
+        }
+        public List<Tipo_Combustivel> GetTipo_CombustivelGerenteById(int gerenteId)
+        {
+            return _tipoCombustivelService.GetTipo_CombustivelGerenteById(gerenteId);
         }
     }
 }

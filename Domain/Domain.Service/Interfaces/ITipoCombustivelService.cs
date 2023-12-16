@@ -10,5 +10,6 @@ namespace Domain.Service.Interfaces
         Tipo_Combustivel GetTipoCombustivelById(int id);
         void InsertTipoCombustivel(TipoCombustivelViewModel TipoCombustivelViewModel);
         void UpdateTipoCombustivel(int id, TipoCombustivelViewModel TipoCombustivelViewModel);
+        List<Tipo_Combustivel> GetTipo_CombustivelGerenteById(int gerenteId);
     }
 }

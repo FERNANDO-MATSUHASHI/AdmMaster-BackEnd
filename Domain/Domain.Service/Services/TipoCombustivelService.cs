@@ -2,6 +2,7 @@
 using Domain.Service.Interfaces;
 using Domain.ViewModel;
 using Infra.Interfaces;
+using Infra.Repositories;
 
 namespace Domain.Service.Services
 {
@@ -28,7 +29,8 @@ namespace Domain.Service.Services
         {
             var tipoCombustivel = new Tipo_Combustivel
             {
-                nome_combustivel = tipoCombustivelViewModel.nome_combustivel
+                nome_combustivel = tipoCombustivelViewModel.nome_combustivel,
+                gerenteId = tipoCombustivelViewModel.gerenteId
             };
 
             _tipoCombustivelRepository.InsertTipoCombustivel(tipoCombustivel);
@@ -41,6 +43,7 @@ namespace Domain.Service.Services
                 throw new Exception("TipoCombustivel nao existe.");
 
             originalTipoCombustivel.nome_combustivel = tipoCombustivelViewModel.nome_combustivel;
+            originalTipoCombustivel.gerenteId = tipoCombustivelViewModel.gerenteId;
 
             _tipoCombustivelRepository.UpdateTipoCombustivel(originalTipoCombustivel);
         }
@@ -53,5 +56,10 @@ namespace Domain.Service.Services
 
             _tipoCombustivelRepository.DeleteTipoCombustivel(originalTipoCombustivel);
         }
+        public List<Tipo_Combustivel> GetTipo_CombustivelGerenteById(int gerenteId)
+        {
+            return _tipoCombustivelRepository.GetTipo_CombustivelGerenteById(gerenteId);
+        }
+
     }
 }

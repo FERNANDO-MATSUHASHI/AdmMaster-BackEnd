@@ -9,5 +9,6 @@ namespace Infra.Interfaces
         public void InsertTipoCombustivel(Tipo_Combustivel tipo_Combustivel);
         public void UpdateTipoCombustivel(Tipo_Combustivel tipo_Combustivel);
         public void DeleteTipoCombustivel(Tipo_Combustivel tipo_Combustivel);
+        public List<Tipo_Combustivel> GetTipo_CombustivelGerenteById(int id);
     }
 }
